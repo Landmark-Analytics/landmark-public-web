@@ -6,10 +6,9 @@ const sectionTitles = document.querySelectorAll(".project-title");
 function calcHeaderStickyPos() {
   const headerHeight = header.getBoundingClientRect().height;
 
-  for (let i = 0; i < sectionTitles.length; i++) {
-    const t = sectionTitles[i];
+  sectionTitles.forEach((t) => {
     t.style.top = headerHeight + "px";
-  }
+  });
 }
 
 calcHeaderStickyPos();
@@ -26,10 +25,42 @@ const lbContainer = document.querySelector("#lightbox");
 const lbImgContainer = document.querySelector("#lightbox-img");
 const lbTitle = document.querySelector("#lightbox-title");
 const lbBackdrop = document.querySelector("#lightbox-backdrop");
+const lbBtnClose = document.querySelector('#lightbox-btn-close');
+const lbBtnGroupPrev = document.querySelector("#lightbox-btn-prev");
+const lbBtnGroupNext = document.querySelector("#lightbox-btn-next");
 const thumbs = document.querySelectorAll(".thumb");
+let isOpen = false;
+let groupInfo = null;
 
-function lbClose(){
+function lbClose() {
+  isOpen = false;
   lbContainer.classList.remove("show");
+}
+
+function lgGetGroupInfo(thumb) {
+  const groupName = thumb.getAttribute("data-group");
+  if (groupName) {
+    const group = [
+      ...document.querySelectorAll(".thumb[data-group=" + groupName + "]"),
+    ];
+    const currentIdx = group.indexOf(group.find((t) => t.isEqualNode(thumb)));
+
+    groupInfo = {
+      prev: group[currentIdx - 1 === -1 ? group.length - 1 : currentIdx - 1],
+      next: group[currentIdx + 1 === group.length ? 0 : currentIdx + 1],
+    };
+  } else {
+    groupInfo = null;
+  }
+}
+
+function lbDisplay(thumb) {
+  isOpen = true;
+  const img = thumb.querySelector("img");
+  lbImgContainer.innerHTML = img.outerHTML;
+  lbTitle.innerHTML = img.getAttribute("alt");
+  lbContainer.classList.add("show");
+  lgGetGroupInfo(thumb);
 }
 
 //click elements to close
@@ -37,21 +68,43 @@ lbBackdrop.addEventListener("click", lbClose);
 lbImgContainer.addEventListener("click", lbClose);
 lbTitle.addEventListener("click", lbClose);
 
-//press ESC to close
+//Keyboard nav
 document.addEventListener("keydown", (ev) => {
-  if (ev.key === "Escape") {
-    lbClose();
+  if (isOpen) {
+    switch (ev.key) {
+      case "Escape":
+        lbClose();
+        break;
+      case "ArrowRight":
+        lbDisplay(groupInfo.next);
+        break;
+      case "ArrowLeft":
+        lbDisplay(groupInfo.prev);
+        break;
+      default:
+        break;
+    }
   }
 });
 
-for (let i = 0; i < thumbs.length; i++) {
-  const t = thumbs[i];
+lbBtnClose.addEventListener('click', (ev) => {
+  ev.preventDefault();
+  lbClose();
+})
+
+lbBtnGroupPrev.addEventListener('click', (ev) => {
+  ev.preventDefault();
+  lbDisplay(groupInfo.prev);
+})
+
+lbBtnGroupNext.addEventListener('click', (ev) => {
+  ev.preventDefault();
+  lbDisplay(groupInfo.next);
+})
+
+thumbs.forEach((t) => {
   t.addEventListener("click", (ev) => {
-    const img = t.querySelector("img");
-    console.log(lbImgContainer, img.src)
-    lbImgContainer.style.backgroundImage = 'url("' + img.src + '")';
-    lbTitle.innerHTML = img.getAttribute("alt");
-    lbContainer.classList.add("show");
     ev.preventDefault();
+    lbDisplay(t);
   });
-}
+});

@@ -11,7 +11,7 @@ header {
     background: rgba(245, 245, 245, 0.85); /* #F5F5F5 */
     text-align: center;
     padding: .5em 1em;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     box-shadow: rgba(51, 51, 51, 30%) 0 0 15px 5px;
     text-align: center;
     position: sticky;
@@ -34,12 +34,13 @@ main {
 .project-group {
     background: #FFF;
     border-radius: 8px;
-    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+    box-shadow: rgba(0, 0, 0, 0.5) 0 4px 4px -2px;
     margin-bottom: 2em;
 }
 
 .project-title {
-    background-color: #ec2331;
+    background-color: rgba(236, 35, 49, 0.85);
+    backdrop-filter: blur(5px);
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
     color: #FFF;
@@ -47,7 +48,7 @@ main {
     margin: 0;
     position: sticky;
     top: 75px; /*This is overridden by JS upon load & browser resize events!*/
-    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+    box-shadow: rgba(0, 0, 0, 0.5) 0 4px 4px -2px;
 }
 
 .project-content {
@@ -67,7 +68,7 @@ main {
 }
 
 .row .col:hover {
-    background: #FAFAFA;
+    background: #f9f9f9;
 }
 
 /*************************************
@@ -95,37 +96,35 @@ Images & Lightbox
     padding: 1em;
     text-align: center;
     text-decoration: none;
-    
+    pointer-events: none;
     opacity: 0;
     transition: opacity 300ms;
     z-index: 999;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #lightbox,
 #lightbox-backdrop {
     position: fixed;
-    pointer-events: none;
-}
-
-#lightbox.show,
-#lightbox.show #lightbox-backdrop {
-    opacity: 1;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    pointer-events:all;
 }
 
-#lightbox-img,
+#lightbox.show {
+    pointer-events:all;
+    opacity: 1;
+}
+
 #lightbox-backdrop {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
     width: 100%;
     height: 100%;
-}
-
-#lightbox-backdrop,
-#lightbox-title {
-    position: fixed;
 }
 
 #lightbox-img {
@@ -133,23 +132,71 @@ Images & Lightbox
     background-size: contain;
     background-position: center;
     position: relative;
+    flex-grow: 1;
     z-index: 1000;
+}
+
+#lightbox-img img {
+    max-width: 90vw;
+    max-height: 85vh;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 4px 4px -2px;
 }
 
 #lightbox-title {
     color: #FFF;
     font-size: 1.5em;
-    bottom: 0;
     z-index: 1001;
     width: 100%;
+    text-shadow: rgba(0, 0, 0, 0.5) 0 4px 4px;
 }
 
-#lightbox-backdrop {
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(5px);
+#lightbox-btn-close,
+#lightbox-btn-prev,
+#lightbox-btn-next {
+    opacity: 0.25;
+    color: #FFF;
+    
+    text-shadow: rgba(0, 0, 0, 0.5) 0 4px 4px;
+    text-decoration: none;
+    font-size: 4rem;
+    z-index: 1002;
+}
+
+#lightbox-btn-close {
+    width: 4rem;
+    align-self: end;
+    margin-right: 100px;
+    flex-grow: 1;
+}
+#lightbox-btn-close:hover {
+    opacity: 1;
+}
+
+#lightbox-btn-prev,
+#lightbox-btn-next {
+    position: fixed;
+    top:0;
+    bottom: 0;
+    padding-top: calc(50vh - 2rem);
+    width: 100px;
+}
+
+#lightbox-btn-prev{
+    left: 0;
+}
+#lightbox-btn-next{
+    right: 0;
+}
+
+#lightbox-btn-prev:hover,
+#lightbox-btn-next:hover {
+    opacity: 1;
+    background: rgba(245, 245, 245, 10%);
+    box-shadow: rgba(0, 0, 0, 0.5) 0 4px 4px -2px;
 }
 
 .thumb {
+    background-color: #FFF;
     border: 1px solid #CCC;
     border-radius: 8px;
     display: inline-block;
@@ -159,16 +206,17 @@ Images & Lightbox
     color: #333;
     text-decoration: none;
     padding-bottom: 5px;
+    transition: all 300ms;
 }
 
 .thumb img {
     max-width: 100%;
     border-bottom: 1px solid #CCC;
+    transition: all 300ms;
 }
 
 .thumb:hover,
 .thumb:hover img {
     border-color: #333;
-    background-color: #F5F5F5;
 }
 
