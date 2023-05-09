@@ -29,6 +29,7 @@ const lbBtnClose = document.querySelector('#lightbox-btn-close');
 const lbBtnGroupPrev = document.querySelector("#lightbox-btn-prev");
 const lbBtnGroupNext = document.querySelector("#lightbox-btn-next");
 const thumbLinks = document.querySelectorAll(".thumb");
+const groupPreloadObj = {};
 let isOpen = false;
 let groupInfo = null;
 
@@ -40,17 +41,28 @@ function lbClose() {
 function lgGetGroupInfo(thumbLink) {
   const groupName = thumbLink.getAttribute("data-group");
   if (groupName) {
-    const group = [
+    const groupArr = [
       ...document.querySelectorAll(".thumb[data-group=" + groupName + "]"),
     ];
-    const currentIdx = group.indexOf(group.find((t) => t.isEqualNode(thumbLink)));
+
+    lbPreloadGroup(groupName, groupArr);
+
+    const currentIdx = groupArr.indexOf(groupArr.find((t) => t.isEqualNode(thumbLink)));
 
     groupInfo = {
-      prev: group[currentIdx - 1 === -1 ? group.length - 1 : currentIdx - 1],
-      next: group[currentIdx + 1 === group.length ? 0 : currentIdx + 1],
+      prev: groupArr[currentIdx - 1 === -1 ? groupArr.length - 1 : currentIdx - 1],
+      next: groupArr[currentIdx + 1 === groupArr.length ? 0 : currentIdx + 1],
     };
   } else {
     groupInfo = null;
+  }
+}
+
+function lbPreloadGroup(groupName, groupArr){
+  if(!groupPreloadObj[groupName]) {
+    groupPreloadObj[groupName] = groupArr.map(t => {
+      return (new Image()).src = t.href;
+    });
   }
 }
 
