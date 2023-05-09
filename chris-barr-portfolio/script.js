@@ -28,7 +28,7 @@ const lbBackdrop = document.querySelector("#lightbox-backdrop");
 const lbBtnClose = document.querySelector('#lightbox-btn-close');
 const lbBtnGroupPrev = document.querySelector("#lightbox-btn-prev");
 const lbBtnGroupNext = document.querySelector("#lightbox-btn-next");
-const thumbs = document.querySelectorAll(".thumb");
+const thumbLinks = document.querySelectorAll(".thumb");
 let isOpen = false;
 let groupInfo = null;
 
@@ -37,13 +37,13 @@ function lbClose() {
   lbContainer.classList.remove("show");
 }
 
-function lgGetGroupInfo(thumb) {
-  const groupName = thumb.getAttribute("data-group");
+function lgGetGroupInfo(thumbLink) {
+  const groupName = thumbLink.getAttribute("data-group");
   if (groupName) {
     const group = [
       ...document.querySelectorAll(".thumb[data-group=" + groupName + "]"),
     ];
-    const currentIdx = group.indexOf(group.find((t) => t.isEqualNode(thumb)));
+    const currentIdx = group.indexOf(group.find((t) => t.isEqualNode(thumbLink)));
 
     groupInfo = {
       prev: group[currentIdx - 1 === -1 ? group.length - 1 : currentIdx - 1],
@@ -54,13 +54,13 @@ function lgGetGroupInfo(thumb) {
   }
 }
 
-function lbDisplay(thumb) {
+function lbDisplay(thumbLink) {
   isOpen = true;
-  const img = thumb.querySelector("img");
-  lbImgContainer.innerHTML = img.outerHTML;
-  lbTitle.innerHTML = img.getAttribute("alt");
+  lbImgContainer.querySelector("img").src = thumbLink.href ;
+  lbImgContainer.querySelector("img").alt = thumbLink.getAttribute("title");
+  lbTitle.innerHTML = thumbLink.getAttribute("title");
   lbContainer.classList.add("show");
-  lgGetGroupInfo(thumb);
+  lgGetGroupInfo(thumbLink);
 }
 
 //click elements to close
@@ -102,7 +102,7 @@ lbBtnGroupNext.addEventListener('click', (ev) => {
   lbDisplay(groupInfo.next);
 })
 
-thumbs.forEach((t) => {
+thumbLinks.forEach((t) => {
   t.addEventListener("click", (ev) => {
     ev.preventDefault();
     lbDisplay(t);
