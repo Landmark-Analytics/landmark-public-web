@@ -41,6 +41,7 @@ function lbClose() {
 function lgGetGroupInfo(thumbLink) {
   const groupName = thumbLink.getAttribute("data-group");
   if (groupName) {
+    lbContainer.classList.remove('single-image');
     const groupArr = [
       ...document.querySelectorAll(".thumb[data-group=" + groupName + "]"),
     ];
@@ -54,6 +55,7 @@ function lgGetGroupInfo(thumbLink) {
       next: groupArr[currentIdx + 1 === groupArr.length ? 0 : currentIdx + 1],
     };
   } else {
+    lbContainer.classList.add('single-image');
     groupInfo = null;
   }
 }
