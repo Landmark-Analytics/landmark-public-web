@@ -19,8 +19,8 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          localDir: "."
-          server-dir: ./httpdocs
+          localDir: "./"
+          server-dir: ./httpdocs/
           protocol: ftps
           dangerous-clean-slate: true
           exclude: |
