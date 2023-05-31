@@ -1,4 +1,4 @@
-name: Deploy via FTP
+name: 🚀 Deploy website to FTP on push
 on:
   push:
     branches:
@@ -6,19 +6,27 @@ on:
 permissions:
   contents: write
 jobs:
-  deploy:
-    name: Deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🛎️
+  web-deploy:
+      name: 🎉 Deploy
+      runs-on: ubuntu-latest
+      steps:
+      - name: 🚚 Get latest code
         uses: actions/checkout@v3
 
-      - name: Upload FTP 🗃️
-        uses: sebastianpopp/ftp-action@releases/v2
+      - name: 📂 Upload files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          host: ${{ secrets.FTP_SERVER }}
-          user: ${{ secrets.FTP_USERNAME }}
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           localDir: "."
-          remoteDir: "httpdocs"
-          options: "--delete --asci"
+          server-dir: ./httpdocs
+          protocol: ftps
+          dangerous-clean-slate: true
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.vscode*/**
+            **/node_modules/**
+            package.json
+            README.md
