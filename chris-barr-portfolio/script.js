@@ -36,6 +36,7 @@ let groupInfo = null;
 function lbClose() {
   isOpen = false;
   lbContainer.classList.remove("show");
+  lbContainer.classList.remove('single-image');
 }
 
 function lgGetGroupInfo(thumbLink) {

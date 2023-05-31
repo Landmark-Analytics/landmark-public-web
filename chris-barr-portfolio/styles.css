@@ -4,6 +4,11 @@
   --highlight-color: 236, 35, 49;
   --inner-content-border-color: #ccc;
 }
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
 
 body {
   background: var(--background-color);
@@ -29,30 +34,23 @@ a:hover {
 Basic rows/cols
 -----------------------------------*/
 .row {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -0.5rem;
-}
-.row .col {
-  flex: 1 0 0%;
-  width: 100%;
-  padding: 0 0.5rem;
-  background-color: transparent;
-  transition: background-color 300ms;
-}
-.row .col:last-child {
-  margin-left: 1em;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0.5rem;
+  display: grid;
 }
 
-.row .col:hover {
-  background-color: #f9f9f9;
+@media only screen and (min-width: 576px) {
+  /* Screens wider than most mobile */
+  .row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /*-----------------------------------
 Code Display
 -----------------------------------*/
 pre {
-  padding: 1em;
+  padding: 1rem;
   margin: 0 0 10px;
   word-break: break-all;
   word-wrap: break-word;
@@ -61,7 +59,6 @@ pre {
   border-radius: 4px;
   max-height: 250px;
   overflow-y: scroll;
-
   transition: border-color 300ms;
 }
 pre:hover {
@@ -158,31 +155,64 @@ Specific Sections
 /*-----------------------------------
 Thumbnail Images
 -----------------------------------*/
+.thumb-container {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.2rem;
+  display: grid;
+}
+
+.thumb-container-full-width {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .thumb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+
   background-color: #fff;
   border: 1px solid var(--inner-content-border-color);
   border-radius: 8px;
-  display: inline-block;
-  max-width: 75px;
-  text-align: center;
   overflow: hidden;
   color: #333;
   text-decoration: none;
-  padding-bottom: 5px;
   transition: all 300ms;
 }
 
 .thumb img {
+  display: block;
+  max-height: 150px;
   max-width: 100%;
-  border-bottom: 1px solid var(--inner-content-border-color);
+}
+
+.thumb-title{
+  border-top: 1px solid var(--inner-content-border-color);
+  padding: 0.25rem;
+  width: 100%;
+  text-align: center;
   transition: all 300ms;
 }
 
+.thumb.thumb-full {
+  max-width: 100%;
+}
+.thumb.thumb-full img {
+  max-height: 100%;
+}
+
 .thumb:hover,
-.thumb:hover img {
+.thumb:hover .thumb-title {
   border-color: rgb(var(--highlight-color));
   color: rgb(var(--highlight-color));
   text-decoration: none;
+}
+
+@media only screen and (min-width: 576px) {
+  /* Screens wider than most mobile */
+  .thumb-container-full-width {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
 }
 
 /*-----------------------------------
@@ -302,12 +332,7 @@ Lightbox
 /*-----------------------------------
 Media Query Overrides
 -----------------------------------*/
-@media only screen and (min-width: 576px) {
-  /* Screens wider than most mobile */
-  .row .col {
-    flex: 1;
-  }
-}
+
 
 @media only screen and (min-height: 600px) and (min-width: 576px) {
   /* Screens taller than most mobile */
@@ -329,9 +354,5 @@ Media Query Overrides
   #lightbox-btn-prev,
   #lightbox-btn-next {
     width: 100px;
-  }
-
-  .thumb {
-    max-width: 150px;
   }
 }
