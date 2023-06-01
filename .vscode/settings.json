@@ -13,5 +13,7 @@
     "tsconfig.json": "tsconfig.*.json",
     "package.json": "package-lock.json"
   },
-  "explorer.fileNesting.expand": false
+  "explorer.fileNesting.expand": false,
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2
 }
