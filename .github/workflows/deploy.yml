@@ -1,5 +1,6 @@
-name: 🚀 Deploy website to FTP on push
+name: 🚀 Deploy website via FTPS
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -16,11 +17,11 @@ jobs:
       - name: 📂 Upload files via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          server: landmarkanalytics.com
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: "./"
-          server-dir: ./httpdocs/
+          local-dir: ./
+          server-dir: ./
           protocol: ftps
           dangerous-clean-slate: true
           exclude: |
