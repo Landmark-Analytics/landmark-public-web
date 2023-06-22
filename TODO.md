@@ -10,6 +10,7 @@ This is a TODO list for Chris H. as he builds out the initial Landmark Analytics
 
 ## Branches
 **As the `README.md` file said, please be sure you are working on a git branch and not on the `main` branch!**
+Also, please **DO NOT** merge the `dev` branch into the `main` branch for the same reason!
 
 ## Tip: Hot Reload!
 Save yourself some time by making sure "Hot Reload" is on!  This is where the website will auto-refresh when you make changes.
