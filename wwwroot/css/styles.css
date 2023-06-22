@@ -1,0 +1,74 @@
+/*************************
+** Layout
+*************************/
+html {
+    background: #f5f5f5 url('../img/lighthouse-bg.jpg') no-repeat 0 0;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #333;
+    font-family: 'Helvetica Neue', 'Segoe UI', Segoe, Helvetica, Arial, 'Lucida Grande', sans-serif;
+}
+
+html,
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+header,
+main {
+    background: rgba(245, 245, 245, 0.85); /* #F5F5F5 but slightly transparent */
+    text-align: center;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: rgba(51, 51, 51, 30%) 0 0 15px 5px;
+}
+
+h1,
+h2 {
+    margin: 0;
+    font-weight: 300;
+}
+
+/*************************
+** Header
+*************************/
+#header-text {
+    /*This hides the header text since we have a logo image, but the text is still there for screen readers*/
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+#header-logo {
+    height: 70px;
+    overflow: visible; /*This keeps the animated parts of the logo from appearing outside of their container*/
+}
+
+#logo-shape-inner,
+#logo-shape-outer {
+    fill: #ec2331; /*The fill property sets the color for an SVG shape*/
+}
+
+#logo-text-analytics,
+#logo-text-landmark {
+    fill: #333; /*The fill property sets the color for an SVG shape*/
+}
+
+/*************************
+** Main Content
+*************************/
+main {
+    /*This is just a temporary way to style the "Coming Soon" text*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1rem;
+}

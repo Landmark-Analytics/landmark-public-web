@@ -10,10 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/Landmark-Analytics/landmark-public-web.git"
   },
+  "private": true,
   "author": "Landmark Analytics",
   "license": "none",
   "bugs": {
     "url": "https://github.com/Landmark-Analytics/landmark-public-web/issues"
   },
-  "homepage": "https://landmarkanalytics.com"
+  "homepage": "https://landmarkanalytics.com",
+  "devDependencies": {
+   
+  }
 }
