@@ -13,6 +13,15 @@ jobs:
       steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
+        
+      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
 
       - name: 📂 Upload files via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -20,14 +29,11 @@ jobs:
           server: landmarkanalytics.com
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./
+          local-dir: ./bin/Release/net6.0
           server-dir: ./
           protocol: ftps
           dangerous-clean-slate: true
           exclude: |
-            **/.git*
-            **/.git*/**
-            **/.vscode*/**
-            **/node_modules/**
+            .cspell.json
             package.json
-            README.md
+            package-lock.json
