@@ -61,6 +61,16 @@ h2 {
     fill: #333; /*The fill property sets the color for an SVG shape*/
 }
 
+#main-navigation a {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#main-navigation a.current {
+    color: #ec2331;
+    border-bottom: 2px solid #ec2331;
+}
+
 /*************************
 ** Main Content
 *************************/

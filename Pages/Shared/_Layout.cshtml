@@ -38,6 +38,20 @@
             *@
             <partial name="_LandmarkLogoSvg" model='new {id="header-logo"}'>
         </h1>
+
+
+        @*
+            The links below have some special ASP.NET properties on them
+            The `asp-page` property basically sets the `href` for you based on what page/view you point it to
+            The `asp-active-class` will set whatever CSS class you specify on that element when you are on that page
+             - If you are on the "Contact" page, the link with the matching `asp-page` set will get the `current` class added to it
+        *@
+        <nav id="main-navigation">
+            <a asp-active-class="current" asp-page="/Index" >Home</a>
+            <a asp-active-class="current" asp-page="/Contact">Contact</a>
+            <a asp-active-class="current" asp-page="/About">About</a>
+        </nav>
+
     </header>
 
     <main role="main">
