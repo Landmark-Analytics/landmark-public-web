@@ -2,6 +2,7 @@
     "files.exclude": {
         "**/.gitignore": true,
         "**/.gitkeep": true,
+        ".prettierignore": true,
         ".editorconfig": true,
         ".vs": true,
         "bin": true,
