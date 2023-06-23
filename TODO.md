@@ -47,4 +47,13 @@ Any "static" files, like images and CSS, will be in the `wwwroot` folder.  Look 
 You can use the basic layout that the "coming soon" version of this site has now, or you can scrap it and start from scratch.
 The only thing you need to keep the same is the color and shadow of the header, the background image, the logo colors, and the logo animation (which is in a separate CSS file, so just ignore that file)
 
-The "frame" of the site is what the `_Layout.cshtml` file is for.  All the HTML for the "frame" should probably go in there. Just remember that the `@RenderBody()` is where the content of whatever page you visit will be put. You can see that happening as you click the links and see what gets inserted into the page. 
+The "frame" of the site is what the `_Layout.cshtml` file is for.  All the HTML for the "frame" should probably go in there. Just remember that the `@RenderBody()` is where the content of whatever page you visit will be put. You can see that happening as you click the links and see what gets inserted into the page.
+
+# Write some CSS
+Keep in mind that to implement this website design you probably only need to write CSS and a little bit of HTML.
+You shouldn't need any C# at all, and I doubt you'll need any Razor either.
+
+
+See the below image. It highlights the only files you should need to focus on. Everything else you probably won't need to touch.
+
+![Files](todo-files.png)
