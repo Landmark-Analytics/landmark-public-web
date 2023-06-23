@@ -2,12 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-
-    @*This makes sure mobile devices don't zoom in when the page first load*@
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    @*This styles the top bar of the we browser on a mobile device!*@
-    <meta name="theme-color" content="#F5F5F5" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> @*This makes sure mobile devices don't zoom in when the page first load*@
+    <meta name="theme-color" content="#F5F5F5" /> @*This styles the top bar of the web browser on a mobile device!*@
 
     @*
     This is the page title, it's what appears in the tab of the web browser
@@ -21,10 +17,12 @@
     This will make sure all web browsers render html elements consistently
     *@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" />
-
-    @* Next we have the application styles. Everything to make the logo animate is in a separate file so the main one isn't cluttered up *@
-    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/logo-animation.css" asp-append-version="true" />
+    @* Next we have the styles, split out into separate files so things can be organized. Feel free to create new files if needed!  *@
+    <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/header.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/header-logo-animation.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/content.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/footer.css" asp-append-version="true" />
 </head>
 <body>
     <header>
@@ -38,7 +36,6 @@
             *@
             <partial name="_LandmarkLogoSvg" model='new {id="header-logo"}'>
         </h1>
-
 
         @*
             The links below have some special ASP.NET properties on them
@@ -57,6 +54,10 @@
     <main role="main">
         @RenderBody()
     </main>
+
+    <footer>
+        Copyright 2023 Landmark Analytics
+    </footer>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

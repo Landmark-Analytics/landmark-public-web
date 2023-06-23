@@ -1,0 +1,10 @@
+/*************************
+** Main Content
+Anything related to how the main content area looks goes in this file.
+For this initial design you shouldn't need to puch much in this file since we don't know exactly what content will go in here yet
+*************************/
+main {
+    border-radius: 1rem;
+    padding: 15px;
+}
+

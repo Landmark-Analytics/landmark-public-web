@@ -1,3 +1,9 @@
+/*************************
+** Header Logo Animations
+This file only controls the animations for the header logo.
+You shouldn't need to change anything in here.
+*************************/
+
 @keyframes animate-shape-fill {
     0% {
         fill: transparent;

@@ -8,8 +8,4 @@
     <GenerateResourceNeverLockTypeAssemblies>true</GenerateResourceNeverLockTypeAssemblies>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Include="wwwroot\css\styles.css" />
-  </ItemGroup>
-
 </Project>
