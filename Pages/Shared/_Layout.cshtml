@@ -1,19 +1,20 @@
-@inject IWebHostEnvironment Env
+﻿@inject IWebHostEnvironment Env
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--Environment: @Env.EnvironmentName-->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> @*This makes sure mobile devices don't zoom in when the page first load*@
     <meta name="theme-color" content="#F5F5F5" /> @*This styles the top bar of the web browser on a mobile device!*@
 
-    @*
+  @*
     This is the page title, it's what appears in the tab of the web browser
     Note that the first part is always the same, and the 2nd part will come from
     the @ViewData["Title"] variable that can be set on each page
     *@
     <title>Landmark Analytics - @ViewData["Title"]</title>
 
-    @*
+  @*
     We first link to a "normalize.css" file hosted elsewhere on the internet
     This will make sure all web browsers render html elements consistently
     *@
@@ -43,7 +44,7 @@
         <h1>
             <span id="header-text">Landmark Analytics</span>
 
-            @*
+      @*
             This is a special Razor tag that allows us to insert a partial page here.
             Take a look in the /Pages/Shared/_LandmakrkLogoSvg.cshtml file, it contains the SVG logo.
             It's been moved to be in a separate file just so this page isn't cluttered up with all of that stuff
@@ -51,7 +52,7 @@
             <partial name="_LandmarkLogoSvg" model='new {id="header-logo"}'>
         </h1>
 
-        @*
+    @*
             The links below have some special ASP.NET properties on them
             The `asp-page` property basically sets the `href` for you based on what page/view you point it to
             The `asp-active-class` will set whatever CSS class you specify on that element when you are on that page
@@ -66,7 +67,7 @@
     </header>
 
     <main role="main">
-        @RenderBody()
+    @RenderBody()
     </main>
 
     <footer>
@@ -74,6 +75,6 @@
     </footer>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+  @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
