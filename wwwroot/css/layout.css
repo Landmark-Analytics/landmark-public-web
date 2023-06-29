@@ -34,31 +34,17 @@ footer {
     box-shadow: rgba(51, 51, 51, 30%) 0 0 15px 5px;
 }
 
-
-/****************************
-TIP: A good idea might be to use flexbox for the overall page layout.
-    - the `body` tag can be the flexbox container/wrapper
-    - then the child elements are the `header` tag, the `main` tag, and the `footer` tag
-*/
-
 header {
-
+    
 }
 
 
 main {
-    /*This is just a temporary way to style the "Coming Soon" text. Please do not use absolute positioning for the final product!*/
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+   width: 900px;
+   margin: 0 auto;
 }
 
 
 footer {
-    /*This is just a temporary way to style this. Please do not use absolute positioning for the final product!*/
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
+   
 }
