@@ -1,3 +1,4 @@
+@inject IWebHostEnvironment Env
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,12 +18,25 @@
     This will make sure all web browsers render html elements consistently
     *@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" />
+
     @* Next we have the styles, split out into separate files so things can be organized. Feel free to create new files if needed!  *@
     <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/header.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/header-logo-animation.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/content.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/footer.css" asp-append-version="true" />
+
+    @*Google Analytics - Only output wen built in production mode*@
+    @if (Env.IsProduction())
+    {
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XJG5GTZFYF"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-XJG5GTZFYF');
+        </script>
+    }
 </head>
 <body>
     <header>
