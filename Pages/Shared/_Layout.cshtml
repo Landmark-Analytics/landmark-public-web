@@ -1,3 +1,4 @@
+@inject IWebHostEnvironment Env
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +26,18 @@
     @* Next we have the application styles. Everything to make the logo animate is in a separate file so the main one isn't cluttered up *@
     <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/logo-animation.css" asp-append-version="true" />
+
+    @*Google Analytics - Only output wen built in production mode*@
+    @if (Env.IsProduction())
+    {
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XJG5GTZFYF"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-XJG5GTZFYF');
+        </script>
+    }
 </head>
 <body>
     <header>
