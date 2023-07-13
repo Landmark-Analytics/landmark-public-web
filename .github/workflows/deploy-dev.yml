@@ -27,10 +27,10 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: landmarkanalytics.com
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: bin/Debug/net6.0/publish/
-          server-dir: landmark_dev/
+          username: ${{ secrets.FTP_USERNAME_DEV }}
+          password: ${{ secrets.FTP_PASSWORD_DEV }}
+          local-dir: ./bin/Debug/net6.0/publish/
+          server-dir: ./
           protocol: ftps
           exclude: |
             .cspell.json
