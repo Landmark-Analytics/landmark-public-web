@@ -2,8 +2,8 @@ name: 🚀 Deploy website to DEV
 on:
   workflow_dispatch:
   push:
-    branches:
-      - dev
+    branches: [dev]
+    paths-ignore: [".vscode/**", "README.md", ".*"]
 permissions:
   contents: write
 jobs:
