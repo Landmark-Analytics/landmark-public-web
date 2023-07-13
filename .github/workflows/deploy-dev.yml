@@ -2,8 +2,8 @@ name: 🚀 Deploy website to DEV
 on:
   workflow_dispatch:
   push:
-    branches:
-      - dev
+    branches: [dev]
+    paths-ignore: [".vscode/**", "README.md", ".*"]
 permissions:
   contents: write
 jobs:
@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: dotnet restore
       - name: Build
-        run: dotnet publish --configuration Release --no-restore
+        run: dotnet publish --configuration Debug --no-restore
 
       - name: 📂 Upload files via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
