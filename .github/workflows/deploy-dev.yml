@@ -29,8 +29,8 @@ jobs:
           server: landmarkanalytics.com
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./bin/Debug/net6.0/publish/
-          server-dir: /landmark-dev/
+          local-dir: bin/Debug/net6.0/publish/
+          server-dir: landmark_dev/
           protocol: ftps
           exclude: |
             .cspell.json
