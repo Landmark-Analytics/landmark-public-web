@@ -1,0 +1,53 @@
+@import "mixins";
+
+//---------------------------
+//COLORS
+$color-dark: #333;
+$color-light: #FEFEFE;
+$color-red: #EC2331;
+
+
+//---------------------------
+//THEME
+$theme-color-text: $color-dark;
+$theme-color-bg: $color-light;
+$theme-color-highlight: $color-red;
+$theme-bg-image: '../img/lighthouse-bg.jpg';
+
+
+//---------------------------
+//TEXT
+$font-family: 'Helvetica Neue', 'Segoe UI', Segoe, Helvetica, Arial, 'Lucida Grande', sans-serif;
+$font-weight-ultralight: 200;
+$font-weight-light: 300;
+$font-weight-bold: 500;
+$font-weight-semibold: 800;
+
+
+//---------------------------
+//SPACING
+$spacer: 1rem;
+
+
+//---------------------------
+//ANIMATIONS
+$easing: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+
+//---------------------------
+//COMPONENT (header, footer, main content area)
+$component-bg-color: rgba($theme-color-bg, 0.85);
+$component-bg-blur: 10px;
+$component-shadow: rgba(51, 51, 51, 30%) 0 0 15px 5px;
+
+
+//---------------------------
+//HEADER
+$header-logo-text-color: $theme-color-text;
+$header-logo-shape-color: $theme-color-highlight;
+$desktop-header-logo-height: 70px;
+$nav-font-weight: $font-weight-ultralight;
+$desktop-nav-padding: $spacer;
+$desktop-nav-link-color: $theme-color-text;
+$desktop-nav-link-active-color: $theme-color-highlight;
+$desktop-nav-link-active-border-color: $desktop-nav-link-active-color;

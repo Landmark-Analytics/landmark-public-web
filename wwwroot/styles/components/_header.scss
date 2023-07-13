@@ -1,44 +1,39 @@
+@import "variables";
+
 header {
   text-align: center;
-  padding: 15px;
+  padding: $desktop-nav-padding;
 }
 
 #header-text {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
+  @include screen-reader-only;
 }
 
 #header-logo {
-  height: 70px;
+  height: $desktop-header-logo-height;
   overflow: visible;
 }
 
 #logo-shape-inner,
 #logo-shape-outer {
-  fill: #ec2331;
+  fill: $header-logo-shape-color;
 }
 
 #logo-text-analytics,
 #logo-text-landmark {
-  fill: #333;
+  fill: $header-logo-text-color;
 }
 
 #main-navigation {
   a {
-    font-weight: bold;
+    font-weight: $nav-font-weight;
     text-decoration: none;
+    color: $desktop-nav-link-color;
 
 
     &.current {
-      color: #ec2331;
-      border-bottom: 2px solid #ec2331;
+      color: $desktop-nav-link-active-color;
+      border-bottom: 2px solid $desktop-nav-link-active-border-color;
     }
   }
 }

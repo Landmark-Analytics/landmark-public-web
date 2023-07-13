@@ -1,5 +1,10 @@
-﻿html {
-  background: #f5f5f5 url("../img/lighthouse-bg.jpg") no-repeat 0 0;
+﻿html,
+body {
+  height: 100vh;
+}
+
+html {
+  background: #FEFEFE url("../img/lighthouse-bg.jpg") no-repeat 0 0;
   background-size: cover;
   background-attachment: fixed;
   color: #333;
@@ -7,22 +12,21 @@
   overflow-y: scroll;
 }
 
-html,
 body {
-  margin: 0;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1,
 h2 {
   margin: 0;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 header,
 main,
 footer {
-  background: rgba(245, 245, 245, 0.85); /* #F5F5F5 but slightly transparent */
+  background: rgba(254, 254, 254, 0.85);
   backdrop-filter: blur(10px);
   box-shadow: rgba(51, 51, 51, 0.3) 0 0 15px 5px;
 }
@@ -32,9 +36,13 @@ main {
   margin: 0 auto;
 }
 
+footer {
+  margin-top: auto;
+}
+
 header {
   text-align: center;
-  padding: 15px;
+  padding: 1rem;
 }
 
 #header-text {
@@ -56,7 +64,7 @@ header {
 
 #logo-shape-inner,
 #logo-shape-outer {
-  fill: #ec2331;
+  fill: #EC2331;
 }
 
 #logo-text-analytics,
@@ -65,12 +73,13 @@ header {
 }
 
 #main-navigation a {
-  font-weight: bold;
+  font-weight: 200;
   text-decoration: none;
+  color: #333;
 }
 #main-navigation a.current {
-  color: #ec2331;
-  border-bottom: 2px solid #ec2331;
+  color: #EC2331;
+  border-bottom: 2px solid #EC2331;
 }
 
 @keyframes animate-shape-fill {
@@ -79,7 +88,7 @@ header {
     transform: translateX(-5px);
   }
   to {
-    fill: #ec2331;
+    fill: #EC2331;
     transform: translateX(0);
   }
 }
@@ -100,21 +109,19 @@ header {
   animation-fill-mode: both;
   animation-duration: 0.7s;
 }
-
 #header-logo.animate #logo-shape-inner,
 #header-logo.animate #logo-shape-outer {
   animation-name: animate-shape-fill;
+}
+#header-logo.animate #logo-text-landmark path,
+#header-logo.animate #logo-text-analytics path {
+  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation-name: animate-text-fill;
 }
 
 #logo-text-analytics,
 #logo-text-landmark {
   isolation: isolate;
-}
-
-#header-logo.animate #logo-text-landmark path,
-#header-logo.animate #logo-text-analytics path {
-  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
-  animation-name: animate-text-fill;
 }
 
 #logo-shape-inner {
