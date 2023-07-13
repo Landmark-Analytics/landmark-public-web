@@ -1,25 +1,25 @@
 {
-    "files.exclude": {
-        "**/.gitignore": true,
-        "**/.gitkeep": true,
-        ".prettierignore": true,
-        ".editorconfig": true,
-        ".vs": true,
-        "bin": true,
-        "obj": true,
-        "coverage": true,
-        "node_modules": true,
-        "*.csproj": true,
-        "*.sln": true
-    },
-    "editor.formatOnSave": true,
-    "editor.detectIndentation": false,
-    "explorer.fileNesting.patterns": {
-        "*.csproj": "${capture}.csproj.user",
-        "*.cshtml": "${capture}.cshtml.cs",
-        "appsettings.json": "appsettings.*.json",
-        "tsconfig.json": "tsconfig.*.json",
-        "package.json": "package-lock.json"
-    },
-    "explorer.fileNesting.expand": false
+  "files.exclude": {
+    "**/.gitignore": true,
+    "**/.gitkeep": true,
+    ".prettierignore": true,
+    ".editorconfig": true,
+    ".vs": true,
+    "bin": true,
+    "obj": true,
+    "coverage": true,
+    "node_modules": true,
+    "*.csproj": true,
+    "*.sln": true
+  },
+  "editor.formatOnSave": true,
+  "editor.detectIndentation": false,
+  "explorer.fileNesting.patterns": {
+    "*.csproj": "${capture}.csproj.user",
+    "*.cshtml": "${capture}.cshtml.cs",
+    "appsettings.json": "appsettings.*.json",
+    "tsconfig.json": "tsconfig.*.json",
+    "package.json": "package-lock.json"
+  },
+  "explorer.fileNesting.expand": false
 }
