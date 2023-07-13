@@ -1,8 +1,3 @@
-/*************************
-** Header Logo Animations
-This file only controls the animations for the header logo.
-You shouldn't need to change anything in here.
-*************************/
 
 @keyframes animate-shape-fill {
     0% {
@@ -28,12 +23,9 @@ You shouldn't need to change anything in here.
     }
 }
 
-/*
-Only animate when the `.animate` class is added!
-This is added by JavaScript on the first page load of a session
-so it won't be repetitive/annoying across multiple pages
-*/
-
+//Only animate when the `.animate` class is added!
+//This is added by JavaScript on the first page load of a session
+//so it won't be repetitive/annoying across multiple pages
 #header-logo.animate #logo-shape-inner,
 #header-logo.animate #logo-shape-outer,
 #header-logo.animate #logo-text-landmark path,

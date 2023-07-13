@@ -8,4 +8,42 @@
     <GenerateResourceNeverLockTypeAssemblies>true</GenerateResourceNeverLockTypeAssemblies>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="wwwroot\styles\components\_header-logo-animation.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="wwwroot\styles\components\_header.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="wwwroot\styles\components\_footer.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="wwwroot\styles\components\_content.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
+    <None Include="wwwroot\styles\components\_content.scss" />
+    <None Include="wwwroot\styles\components\_footer.scss" />
+    <None Include="wwwroot\styles\components\_header-logo-animation.scss" />
+    <None Include="wwwroot\styles\components\_header.scss" />
+    <None Include="wwwroot\styles\components\_layout.scss" />
+    <None Include="wwwroot\styles\global.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BuildWebCompiler2022" Version="1.14.10" />
+  </ItemGroup>
+
 </Project>

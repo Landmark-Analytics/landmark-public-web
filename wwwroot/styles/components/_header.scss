@@ -1,0 +1,44 @@
+header {
+  text-align: center;
+  padding: 15px;
+}
+
+#header-text {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+#header-logo {
+  height: 70px;
+  overflow: visible;
+}
+
+#logo-shape-inner,
+#logo-shape-outer {
+  fill: #ec2331;
+}
+
+#logo-text-analytics,
+#logo-text-landmark {
+  fill: #333;
+}
+
+#main-navigation {
+  a {
+    font-weight: bold;
+    text-decoration: none;
+
+
+    &.current {
+      color: #ec2331;
+      border-bottom: 2px solid #ec2331;
+    }
+  }
+}
