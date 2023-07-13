@@ -18,15 +18,16 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
+
       - name: Install dependencies
         run: dotnet restore
+
       - name: Build
         run: dotnet publish --configuration Release --no-restore
 
-      - uses: azure/webapps-deploy@v2.2.10
-        name: Deploy
+      - name: Deploy
+        uses: azure/webapps-deploy@v2.2.10
         with:
           app-name: landmarkanalytics.com
           publish-profile: ${{ secrets.PUBLISH_PROFILE_PROD }}
-          package: "./bin/Release/net6.0/publish"
-          images: ""
+          package: ./bin/Release/net6.0/publish
