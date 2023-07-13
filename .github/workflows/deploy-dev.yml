@@ -1,4 +1,4 @@
-name: 🚀 Deploy website to DEV
+name: 🧪 Deploy website to DEV
 on:
   workflow_dispatch:
   push:
@@ -18,21 +18,16 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
+
       - name: Install dependencies
         run: dotnet restore
+
       - name: Build
         run: dotnet publish --configuration Debug --no-restore
 
-      - name: 📂 Upload files via FTPS
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - name: Deploy
+        uses: azure/webapps-deploy@v2.2.10
         with:
-          server: landmarkanalytics.com
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./bin/Release/net6.0/publish/
-          server-dir: ./dev.landmarkanalytics.com/
-          protocol: ftps
-          exclude: |
-            .cspell.json
-            package.json
-            package-lock.json
+          app-name: dev.landmarkanalytics.com
+          publish-profile: ${{ secrets.PUBLISH_PROFILE_DEV }}
+          package: ./bin/Debug/net6.0/publish
