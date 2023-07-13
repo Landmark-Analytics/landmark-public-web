@@ -30,7 +30,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./bin/Debug/net6.0/publish/
-          server-dir: ./landmark-dev/
+          server-dir: /landmark-dev/
           protocol: ftps
           exclude: |
             .cspell.json
