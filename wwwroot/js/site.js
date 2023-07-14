@@ -6,7 +6,9 @@
   const $sideNavLinks = Array.from($sideNav.querySelectorAll('a'));
   const $sidebarBackdrop = document.querySelector('#sidebar-backdrop')
 
-  //Header logo Animation
+  //--------------------------------------------
+  //HEADER LOGO ANIMATION
+  //--------------------------------------------
   const sessionKey = 'next-visit';
   if (sessionStorage.getItem(sessionKey) === null) {
     //First visit for this session
@@ -16,6 +18,12 @@
     //We only want this to happen on the first visit within a session or else it becomes annoying
     $logo.classList.add('animate');
   }
+
+  //--------------------------------------------
+  //SIDE NAVIGATION
+  //--------------------------------------------
+  //make the side nav links not focusable by default
+  $sideNavLinks.forEach(l => l.tabIndex = -1);
 
   let sideNavOpen = false;
   function updateSidebarClass() {
@@ -31,6 +39,12 @@
     $sideNavLinks.forEach(l => l.tabIndex = sideNavOpen ? 0 : -1);
   }
 
+  function closeSidebar(ev) {
+    ev.preventDefault();
+    sideNavOpen = false
+    updateSidebarClass()
+  }
+
   document.body.addEventListener('keyup', (ev) => {
     if (sideNavOpen && ev.key === 'Escape') {
       sideNavOpen = false
@@ -44,15 +58,6 @@
     updateSidebarClass();
   }, false);
 
-  $sidebarBackdrop.addEventListener('click', (ev) => {
-    ev.preventDefault();
-    sideNavOpen = false
-    updateSidebarClass()
-  }, false);
-
-  $sidebarBackdrop.addEventListener('touchstart', (ev) => {
-    ev.preventDefault();
-    sideNavOpen = false
-    updateSidebarClass()
-  }, false);
+  $sidebarBackdrop.addEventListener('click', closeSidebar, false);
+  $sidebarBackdrop.addEventListener('touchstart', closeSidebar, false);
 })();

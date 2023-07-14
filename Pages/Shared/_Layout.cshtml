@@ -39,18 +39,13 @@
         </h1>
         <div class="nav-spacer"></div>
         <nav id="header-navigation">
-            <a asp-active-class="current" asp-page="/Index">Home</a>
-            <a asp-active-class="current" asp-page="/Contact">Contact</a>
-            <a asp-active-class="current" asp-page="/About">About</a>
+            <partial name="_NavigationLinks">
         </nav>
     </header>
 
     <aside id="sidebar">
         <nav id="side-navigation">
-          @*Sidebar links are not focusable by default, the sidebar must be opened first. This is controlled by JS*@
-            <a asp-active-class="current" tabindex="-1" asp-page="/Index">Home</a>
-            <a asp-active-class="current" tabindex="-1" asp-page="/Contact">Contact</a>
-            <a asp-active-class="current" tabindex="-1" asp-page="/About">About</a>
+            <partial name="_NavigationLinks">
         </nav>
     </aside>
     <div id="sidebar-backdrop"></div>
