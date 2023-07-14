@@ -14,8 +14,7 @@ body {
 }
 
 html {
-  background: #FEFEFE url("../img/lighthouse-bg.jpg") no-repeat center 0;
-  background-size: contain;
+  background: #FEFEFE url("../img/lighthouse-bg-default.jpg") no-repeat 0 0;
   background-attachment: fixed;
   color: #333;
   font-family: "Raleway", sans-serif;
@@ -62,11 +61,19 @@ a:focus-visible {
 }
 
 @media (min-width: 768px) {
+  html {
+    background-image: url("../img/lighthouse-bg-desktop.jpg");
+  }
   aside {
     display: none;
   }
   #main-content {
     margin-top: calc(450px + 70px + 2rem + 1rem);
+  }
+}
+@media (min-width: 1921px) {
+  html {
+    background-size: 100% auto;
   }
 }
 #header {
@@ -277,12 +284,15 @@ a:focus-visible {
   top: 0;
   bottom: 0;
   z-index: 12;
+  padding: 1rem 0 0 0;
+  width: 200px;
   background-color: rgba(254, 254, 254, 0.85);
   transform: translateX(-100%);
   transition: 400ms transform cubic-bezier(0.16, 1, 0.3, 1);
 }
 .nav-open #sidebar {
   transform: translateX(0);
+  box-shadow: rgba(51, 51, 51, 0.3) 0 0 15px 5px;
 }
 #sidebar-backdrop {
   position: fixed;
@@ -291,7 +301,7 @@ a:focus-visible {
   bottom: 0;
   left: 0;
   z-index: 11;
-  background-color: rgba(51, 51, 51, 0.75);
+  background-color: rgba(51, 51, 51, 0.9);
   opacity: 0;
   pointer-events: none;
   transition: 400ms opacity;

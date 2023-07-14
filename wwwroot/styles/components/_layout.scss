@@ -11,8 +11,7 @@ body {
 }
 
 html {
-  background: $theme-color-bg url($theme-bg-image) no-repeat center 0;
-  background-size: contain;
+  background: $theme-color-bg url('../img/lighthouse-bg-default.jpg') no-repeat 0 0;
   background-attachment: fixed;
   color: $theme-color-text;
   font-family: $font-family;
@@ -61,8 +60,13 @@ a {
   text-align: center;
 }
 
+
 @include breakpoint-up($grid-desktop-min-size) {
   //Desktop overrides
+
+  html {
+    background-image: url('../img/lighthouse-bg-desktop.jpg')
+  }
 
   aside {
     display: none;
@@ -70,5 +74,12 @@ a {
 
   #main-content {
     margin-top: calc($theme-bg-image-visible-height-desktop + $computed-header-height-desktop);
+  }
+}
+
+@media (min-width: 1921px) {
+    //When the screen is wider than the large BG image, scale the image width to match
+  html {
+    background-size: 100% auto;
   }
 }

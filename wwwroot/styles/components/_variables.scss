@@ -25,7 +25,6 @@ $color-red: #EC2331;
 $theme-color-text: $color-dark;
 $theme-color-bg: $color-light;
 $theme-color-highlight: $color-red;
-$theme-bg-image: '../img/lighthouse-bg.jpg';
 $theme-bg-image-visible-height: 200px;
 $theme-bg-image-visible-height-desktop: 450px;
 
@@ -84,9 +83,12 @@ $nav-link-border-width: 4px;
 //---------------------------
 //SIDE NAVIGATION (mobile)
 $sidebar-zindex: $header-zindex + 2;
+$sidebar-width: 200px;
+$sidebar-shadow: $shadow;
+$sidebar-padding: $spacer 0 0 0;
 $sidebar-backdrop-z-index: $header-zindex + 1;
 $sidebar-color-bg: rgba($theme-color-bg, 0.85);
-$sidebar-backdrop-color: rgba($color-dark, 0.75);
+$sidebar-backdrop-color: rgba($color-dark, 0.90);
 $side-nav-link-padding: $spacer-sm $spacer $spacer-sm calc($spacer - $nav-link-border-width);
 
 
