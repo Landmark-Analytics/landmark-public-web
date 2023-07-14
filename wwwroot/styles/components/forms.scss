@@ -1,0 +1,11 @@
+@import "variables";
+@import "mixins";
+
+.form-ctrl{
+    margin-bottom: $spacer;
+
+    label {
+        display: block;
+        font-weight: $font-weight-semibold;
+    }
+}

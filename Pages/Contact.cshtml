@@ -1,8 +1,34 @@
 @page
 @model LandmarkPublicWeb.Pages.ContactModel
 @{
-    ViewData["Title"] = "Contact";
+    ViewData["Title"] = "Contact Us";
 }
 
 <h2>@ViewData["Title"]</h2>
-<p>The contact page content goes here</p>
+
+
+<form>
+    <div class="form-ctrl">
+        <label for="name">
+            Name
+        </label>
+        <input type="text" id="name" />
+    </div>
+
+    <div class="form-ctrl">
+        <label for="email">
+            Email
+        </label>
+        <input type="email" id="email" />
+
+    </div>
+    <div class="form-ctrl">
+        <label for="message">
+            Message
+        </label>
+        <textarea id="message"></textarea>
+    </div>
+    <div class="form-ctrl">
+        <button type="submit">Send</button>
+    </div>
+</form>
