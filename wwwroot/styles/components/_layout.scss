@@ -1,4 +1,9 @@
 @import "variables";
+@import "mixins";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 html,
 body {
@@ -27,23 +32,43 @@ a {
     color: $link-color-hover;
     text-decoration: underline;
   }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: $link-focus-outline-width solid $link-focus-outline-color;
+  }
 }
 
-header {
+#header {
   background: $header-color-bg;
   backdrop-filter: blur($header-bg-blur);
   box-shadow: $header-shadow;
 }
 
-main {
+#main-content {
   background: $main-color-bg;
   padding: $main-padding;
   flex: 1; //expand to fill
   margin-top: calc($theme-bg-image-visible-height + $computed-header-height);
 }
 
-footer {
+#footer {
   background: $main-color-bg;
   padding: $footer-padding;
   text-align: center;
+}
+
+@include breakpoint-up($grid-desktop-min-size) {
+  //Desktop overrides
+
+  aside {
+    display: none;
+  }
+
+  #main-content {
+    margin-top: calc($theme-bg-image-visible-height-desktop + $computed-header-height-desktop);
+  }
 }

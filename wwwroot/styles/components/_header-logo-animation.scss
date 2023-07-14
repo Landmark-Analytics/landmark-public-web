@@ -3,7 +3,7 @@
 $header-animation-duration: 0.7s;
 $header-animation-step-amount: 0.1s;
 $header-animation-shape-start-offset-x: -5px;
-$header-animation-letter-easing: $easing;
+$header-animation-letter-easing: $ease-out-back;
 
 @keyframes animate-shape-fill {
   0% {

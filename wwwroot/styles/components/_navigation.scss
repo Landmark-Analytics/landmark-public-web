@@ -1,0 +1,91 @@
+@import "variables";
+@import "mixins";
+
+#header-navigation {
+  display: none;
+}
+
+#sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: $sidebar-zindex;
+  background-color: $sidebar-color-bg;
+  transform: translateX(-100%);
+  transition: $duration transform $ease-out-expo;
+
+  .nav-open & {
+    transform: translateX(0);
+  }
+
+  &-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $sidebar-backdrop-z-index;
+    background-color: $sidebar-backdrop-color;
+    opacity: 0;
+    pointer-events: none;
+    transition: $duration opacity;
+
+    .nav-open & {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
+
+#side-navigation,
+#header-navigation {
+  font-size: $nav-font-size;
+
+  a {
+    padding: $desktop-nav-padding;
+    color: $nav-link-color;
+    border: 0 solid transparent;
+
+    &:hover {
+      text-decoration: none;
+      border-color: $nav-link-active-border-color;
+    }
+
+    &.current {
+      font-weight: $nav-link-active-font-weight;
+      color: $nav-link-active-color;
+      background-color: $nav-link-active-color-bg;
+      border-color: $nav-link-active-border-color;
+    }
+  }
+}
+
+#side-navigation {
+  display: flex;
+  flex-direction: column;
+
+  a {
+    padding: $side-nav-link-padding;
+    border-left-width: $nav-link-border-width;
+  }
+}
+
+@include breakpoint-up($grid-desktop-min-size) {
+  //Desktop overrides
+
+  #sidebar,
+  #sidebar-backdrop {
+    display: none;
+  }
+
+  #header-navigation {
+    display: flex;
+    justify-content: center;
+
+    a {
+      padding: $desktop-nav-padding;
+      border-bottom-width: $nav-link-border-width;
+    }
+  }
+}

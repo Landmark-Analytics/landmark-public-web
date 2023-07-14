@@ -1,26 +1,51 @@
 @import "variables";
+@import "mixins";
 
-header {
+#header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  justify-content: center;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
-  z-index: 10;
+  z-index: $header-zindex;
 
   h1 {
     margin: 0;
   }
+
+  .nav-spacer {
+    flex: 1;
+    display: flex;
+  }
 }
 
 #header-text {
-  @include screen-reader-only;
+  @include visually-hidden;
+}
+
+#side-nav-toggle {
+  display: flex;
+  align-items: center;
+  font-size: $header-side-nav-toggle-font-size;
+  padding: $header-side-nav-toggle-padding;
+  color: $header-side-nav-toggle-color;
+  line-height: 1;
+  height: 100%;
+
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: $header-side-nav-toggle-color-bg-active;
+    color: $header-side-nav-toggle-color-active;
+    text-decoration: none;
+  }
 }
 
 #header-logo {
-  height: $desktop-header-logo-height;
+  display: block;
+  height: $header-logo-height;
   margin: $header-logo-margin-v 0;
   overflow: visible;
 }
@@ -35,22 +60,24 @@ header {
   fill: $header-logo-text-color;
 }
 
-#main-navigation {
-  display: flex;
-  justify-content: center;
-  font-size: $desktop-nav-font-size;
+@include breakpoint-up($grid-desktop-min-size) {
+  //Desktop overrides
 
-  a {
-    text-decoration: none;
-    padding: $desktop-nav-padding;
-    color: $desktop-nav-link-color;
-    border-bottom: $desktop-nav-link-border-width solid transparent;
+  #header {
+    flex-direction: column;
+    align-items: center;
 
-    &.current {
-      font-weight: $nav-link-active-font-weight;
-      color: $desktop-nav-link-active-color;
-      background-color: $desktop-nav-link-active-color-bg;
-      border-color: $desktop-nav-link-active-border-color;
+    .nav-spacer {
+      display: none;
     }
+  }
+
+  #side-nav-toggle {
+    display: none;
+  }
+
+  #header-logo {
+    height: $header-desktop-logo-height;
+    margin: $header-desktop-logo-margin-v 0;
   }
 }

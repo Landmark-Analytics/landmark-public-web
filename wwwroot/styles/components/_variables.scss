@@ -1,4 +1,17 @@
-@import "mixins";
+//---------------------------
+//BREAKPOINTS
+$grid-breakpoints: ( xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px, );
+$grid-desktop-min-size: md;
+
+
+//---------------------------
+//SPACING
+$spacer: 1rem;
+$spacers: ( 0: 0, 1: $spacer * 0.25, 2: $spacer * 0.5, 3: $spacer, 4: $spacer * 1.5, );
+$spacer-xs: map-get($spacers, 1);
+$spacer-sm: map-get($spacers, 2);
+$spacer-lg: map-get($spacers, 4);
+
 
 //---------------------------
 //COLORS
@@ -13,7 +26,8 @@ $theme-color-text: $color-dark;
 $theme-color-bg: $color-light;
 $theme-color-highlight: $color-red;
 $theme-bg-image: '../img/lighthouse-bg.jpg';
-$theme-bg-image-visible-height: 450px;
+$theme-bg-image-visible-height: 200px;
+$theme-bg-image-visible-height-desktop: 450px;
 
 
 //---------------------------
@@ -21,47 +35,69 @@ $theme-bg-image-visible-height: 450px;
 $font-family: 'Raleway', sans-serif;
 $font-weight-regular: 400;
 $font-weight-semibold: 600;
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.9rem;
+$font-size-md: 1.75rem;
+$font-size-lg: 2.5rem;
 
 
 //---------------------------
 //MISC
-$spacer: 1rem;
-$spacer-lg: $spacer * 1.5;
-$spacer-sm: $spacer * .5;
-$spacer-xs: $spacer * .25;
-$easing: cubic-bezier(0.34, 1.56, 0.64, 1);
+$ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+$ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+$duration: 400ms;
 $shadow: rgba($color-dark, 30%) 0 0 15px 5px;
 $link-color: $theme-color-highlight;
 $link-color-hover: lighten($theme-color-highlight, 5%);
+$link-focus-outline-color: $theme-color-highlight;
+$link-focus-outline-width: 2px;
 
 
 //---------------------------
 //HEADER
+$header-zindex: 10;
 $header-color-bg: rgba($theme-color-bg, 0.75);
 $header-bg-blur: 10px;
 $header-shadow: $shadow;
-$header-logo-margin-v: $spacer;
+$header-side-nav-toggle-color: $theme-color-text;
+$header-side-nav-toggle-color-active: $theme-color-highlight;
+$header-side-nav-toggle-color-bg-active: rgba($theme-color-highlight, .1);
+$header-side-nav-toggle-font-size: $font-size-md;
+$header-side-nav-toggle-padding: $spacer-sm $spacer;
 $header-logo-text-color: $theme-color-text;
 $header-logo-shape-color: $theme-color-highlight;
-$desktop-header-logo-height: 70px;
+$header-logo-margin-v: $spacer-sm;
+$header-desktop-logo-margin-v: $spacer;
+$header-logo-height: 40px;
+$header-desktop-logo-height: 70px;
+
+//---------------------------
+//NAVIGATION (Shared: mobile + desktop)
+$nav-link-active-font-weight: $font-weight-semibold;
+$nav-link-color: $theme-color-text;
+$nav-link-active-color: $theme-color-highlight;
+$nav-link-active-color-bg: rgba($color-dark, .1);
+$nav-link-active-border-color: $nav-link-active-color;
+$nav-font-size: 20px;
+$nav-link-border-width: 4px;
+
+//---------------------------
+//SIDE NAVIGATION (mobile)
+$sidebar-zindex: $header-zindex + 2;
+$sidebar-backdrop-z-index: $header-zindex + 1;
+$sidebar-color-bg: rgba($theme-color-bg, 0.85);
+$sidebar-backdrop-color: rgba($color-dark, 0.75);
+$side-nav-link-padding: $spacer-sm $spacer $spacer-sm calc($spacer - $nav-link-border-width);
 
 
 //---------------------------
-//HEADER NAVIGATION
-$nav-link-active-font-weight: $font-weight-semibold;
-$desktop-nav-font-size: 20px;
-$desktop-nav-link-border-width: 4px;
+//HEADER NAVIGATION (desktop)
 $desktop-nav-padding-v: $spacer-sm;
 $desktop-nav-padding-h: $spacer-sm;
-$desktop-nav-padding: $desktop-nav-padding-v $desktop-nav-padding-h calc($desktop-nav-padding-v - $desktop-nav-link-border-width) $desktop-nav-padding-h;
+$desktop-nav-padding: $desktop-nav-padding-v $desktop-nav-padding-h calc($desktop-nav-padding-v - $nav-link-border-width) $desktop-nav-padding-h;
 
-$desktop-nav-link-color: $theme-color-text;
-$desktop-nav-link-active-color: $theme-color-highlight;
-$desktop-nav-link-active-color-bg: rgba($color-dark, .1) ;
-$desktop-nav-link-active-border-color: $desktop-nav-link-active-color;
-
-
-$computed-header-height: calc($desktop-header-logo-height + ($header-logo-margin-v * 2) + ($desktop-nav-padding-v * 2));
+$computed-header-height: calc($header-logo-height + ($header-logo-margin-v * 2));
+$computed-header-height-desktop: calc($header-desktop-logo-height + ($header-desktop-logo-margin-v * 2) + ($desktop-nav-padding-v * 2));
 
 //---------------------------
 //FOOTER

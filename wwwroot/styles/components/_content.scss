@@ -1,6 +1,6 @@
 @import "variables";
 
-main {
+#main-content {
   //h1 should not be used in the content!
   h2, h3, h4, h5, h6 {
     margin: 0 0 $spacer 0;
