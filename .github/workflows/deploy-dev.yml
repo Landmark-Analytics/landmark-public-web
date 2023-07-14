@@ -25,9 +25,16 @@ jobs:
       - name: Build
         run: dotnet publish --configuration Debug --no-restore
 
-      - name: Deploy
-        uses: azure/webapps-deploy@v2.2.10
+      - name: 📂 Upload files via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          app-name: dev.landmarkanalytics.com
-          publish-profile: ${{ secrets.PUBLISH_PROFILE_DEV }}
-          package: ./bin/Debug/net6.0/publish
+          server: landmarkanalytics.com
+          username: ${{ secrets.FTP_USERNAME_DEV }}
+          password: ${{ secrets.FTP_PASSWORD_DEV }}
+          local-dir: ./bin/Debug/net6.0/publish/
+          server-dir: ./
+          protocol: ftps
+          exclude: |
+            .cspell.json
+            package.json
+            package-lock.json
