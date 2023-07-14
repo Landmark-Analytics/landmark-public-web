@@ -6,8 +6,8 @@ body {
 }
 
 html {
-  background: $theme-color-bg url($theme-bg-image) no-repeat 0 0;
-  background-size: cover;
+  background: $theme-color-bg url($theme-bg-image) no-repeat center 0;
+  background-size: contain;
   background-attachment: fixed;
   color: $theme-color-text;
   font-family: $font-family;
@@ -19,28 +19,31 @@ body {
   flex-direction: column;
 }
 
-h1,
-h2 {
-  margin: 0;
-  font-weight: $font-weight-bold;
-}
+a {
+  color: $link-color;
+  text-decoration: none;
 
-header,
-main,
-footer {
-  background: $component-bg-color;
-  backdrop-filter: blur($component-bg-blur);
-  box-shadow: $component-shadow;
+  &:hover {
+    color: $link-color-hover;
+    text-decoration: underline;
+  }
 }
 
 header {
+  background: $header-color-bg;
+  backdrop-filter: blur($header-bg-blur);
+  box-shadow: $header-shadow;
 }
 
 main {
-  width: 900px;
-  margin: 0 auto;
+  background: $main-color-bg;
+  padding: $main-padding;
+  flex: 1; //expand to fill
+  margin-top: calc($theme-bg-image-visible-height + $computed-header-height);
 }
 
 footer {
-  margin-top: auto;
+  background: $main-color-bg;
+  padding: $footer-padding;
+  text-align: center;
 }

@@ -1,14 +1,20 @@
-﻿html,
+﻿.container {
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 0 1rem;
+}
+
+html,
 body {
   height: 100vh;
 }
 
 html {
-  background: #FEFEFE url("../img/lighthouse-bg.jpg") no-repeat 0 0;
-  background-size: cover;
+  background: #FEFEFE url("../img/lighthouse-bg.jpg") no-repeat center 0;
+  background-size: contain;
   background-attachment: fixed;
   color: #333;
-  font-family: "Helvetica Neue", "Segoe UI", Segoe, Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Raleway", sans-serif;
   overflow-y: scroll;
 }
 
@@ -17,32 +23,46 @@ body {
   flex-direction: column;
 }
 
-h1,
-h2 {
-  margin: 0;
-  font-weight: 500;
+a {
+  color: #EC2331;
+  text-decoration: none;
+}
+a:hover {
+  color: #ee3a47;
+  text-decoration: underline;
 }
 
-header,
-main,
-footer {
-  background: rgba(254, 254, 254, 0.85);
+header {
+  background: rgba(254, 254, 254, 0.75);
   backdrop-filter: blur(10px);
   box-shadow: rgba(51, 51, 51, 0.3) 0 0 15px 5px;
 }
 
 main {
-  width: 900px;
-  margin: 0 auto;
+  background: #FEFEFE;
+  padding: 1rem 0;
+  flex: 1;
+  margin-top: calc(450px + 70px + 2rem + 1rem);
 }
 
 footer {
-  margin-top: auto;
+  background: #FEFEFE;
+  padding: 0 0 1rem 0;
+  text-align: center;
 }
 
 header {
-  text-align: center;
-  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+}
+header h1 {
+  margin: 0;
 }
 
 #header-text {
@@ -59,6 +79,7 @@ header {
 
 #header-logo {
   height: 70px;
+  margin: 1rem 0;
   overflow: visible;
 }
 
@@ -72,14 +93,22 @@ header {
   fill: #333;
 }
 
+#main-navigation {
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+}
 #main-navigation a {
-  font-weight: 200;
   text-decoration: none;
+  padding: 0.5rem 0.5rem calc(0.5rem - 4px) 0.5rem;
   color: #333;
+  border-bottom: 4px solid transparent;
 }
 #main-navigation a.current {
+  font-weight: 600;
   color: #EC2331;
-  border-bottom: 2px solid #EC2331;
+  background-color: rgba(51, 51, 51, 0.1);
+  border-color: #EC2331;
 }
 
 @keyframes animate-shape-fill {
@@ -200,12 +229,7 @@ header {
   animation-delay: 1.7s;
 }
 
-footer {
-  text-align: center;
-  padding: 15px;
-}
-
-main {
-  border-radius: 1rem;
-  padding: 15px;
+main h2, main h3, main h4, main h5, main h6 {
+  margin: 0 0 1rem 0;
+  font-weight: 600;
 }

@@ -1,5 +1,9 @@
-main {
-    border-radius: 1rem;
-    padding: 15px;
-}
+@import "variables";
 
+main {
+  //h1 should not be used in the content!
+  h2, h3, h4, h5, h6 {
+    margin: 0 0 $spacer 0;
+    font-weight: $font-weight-semibold;
+  }
+}
