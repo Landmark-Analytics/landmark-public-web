@@ -84,7 +84,8 @@
 
   #header-navigation {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    width: 100%;
 
     a {
       padding: $desktop-nav-padding;
