@@ -30,7 +30,6 @@ body {
 
   &:focus-visible {
     outline: $focus-outline-width solid $focus-outline-color;
-    box-shadow: $focus-shadow;
   }
 }
 

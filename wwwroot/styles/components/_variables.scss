@@ -53,8 +53,7 @@ $radius-sm: $radius / 2;
 $link-color: $theme-color-highlight;
 $link-color-hover: lighten($theme-color-highlight, 5%);
 $focus-outline-color: rgba($theme-color-highlight, .6);
-$focus-outline-width: 2px;
-$focus-shadow: 0 0 10px rgba($theme-color-highlight, .6), inset 0 0 10px rgba($theme-color-highlight, .2);
+$focus-outline-width: $spacer-xs;
 
 
 //---------------------------
@@ -147,13 +146,13 @@ $form-ctrl-textarea-min-height: 150px;
 $form-ctrl-textarea-max-height: 500px;
 
 $form-ctrl-focus-border-color: $color-dark;
-$form-ctrl-focus-shadow: 0 0 0 3px rgba($form-ctrl-border-color, .2);
+$form-ctrl-focus-shadow: 0 0 0 $focus-outline-width rgba($form-ctrl-border-color, .2);
 $form-ctrl-focus-padding-top: 1.625rem;
 $form-ctrl-focus-padding-bottom: 0.625rem;
 $form-ctrl-invalid-bg-color: lighten($theme-color-error, 70%);
 $form-ctrl-invalid-border-color: rgba($theme-color-error, .6);
 $form-ctrl-invalid-focus-border-color: $theme-color-error;
-$form-ctrl-invalid-focus-shadow: 0 0 0 3px rgba($theme-color-error, .4);
+$form-ctrl-invalid-focus-shadow: 0 0 0 $focus-outline-width rgba($theme-color-error, .4);
 
 $form-ctrl-transition-speed: $duration-fast;
 $form-ctrl-transition-easing: ease-in-out;
@@ -181,4 +180,4 @@ $btn-hover-color-border: darken($theme-color-highlight, 15%);
 $btn-focus-color: $color-light;
 $btn-focus-color-bg: darken($theme-color-highlight, 15%);
 $btn-focus-color-border: darken($theme-color-highlight, 20%);
-$btn-focus-shadow: 0 0 0 3px rgba($theme-color-highlight,.5);
+$btn-focus-shadow: 0 0 0 $focus-outline-width rgba($theme-color-highlight,.5);
