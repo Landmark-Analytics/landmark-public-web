@@ -3,10 +3,17 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace LandmarkPublicWeb.Pages
 {
-    public class ExpertiseModel : PageModel
+  public class ExpertiseModel : PageModel
+  {
+    private readonly ILogger<ExpertiseModel> _logger;
+
+    public ExpertiseModel(ILogger<ExpertiseModel> logger)
     {
-        public void OnGet()
-        {
-        }
+      _logger = logger;
     }
+
+    public void OnGet()
+    {
+    }
+  }
 }

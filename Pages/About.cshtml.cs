@@ -3,15 +3,15 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace LandmarkPublicWeb.Pages
 {
-    public class AboutModel : PageModel
+  public class AboutModel : PageModel
+  {
+    private readonly ILogger<AboutModel> _logger;
+
+    public AboutModel(ILogger<AboutModel> logger)
     {
-        private readonly ILogger<IndexModel> _logger;
-
-        public AboutModel(ILogger<IndexModel> logger)
-        {
-            _logger = logger;
-        }
-
-        public void OnGet() { }
+      _logger = logger;
     }
+
+    public void OnGet() { }
+  }
 }

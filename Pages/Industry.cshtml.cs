@@ -3,10 +3,17 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace LandmarkPublicWeb.Pages
 {
-    public class IndustryModel : PageModel
+  public class IndustryModel : PageModel
+  {
+    private readonly ILogger<IndustryModel> _logger;
+
+    public IndustryModel(ILogger<IndustryModel> logger)
     {
-        public void OnGet()
-        {
-        }
+      _logger = logger;
     }
+
+    public void OnGet()
+    {
+    }
+  }
 }
