@@ -5,7 +5,6 @@
   const $sideNav = document.querySelector('#side-navigation')
   const $sideNavLinks = Array.from($sideNav.querySelectorAll('a'));
   const $sidebarBackdrop = document.querySelector('#sidebar-backdrop')
-  const $formFields = Array.from(document.querySelectorAll('#main-content input, #main-content textarea'));
 
   //--------------------------------------------
   //HEADER LOGO ANIMATION
@@ -61,14 +60,4 @@
 
   $sidebarBackdrop.addEventListener('click', closeSidebar, false);
   $sidebarBackdrop.addEventListener('touchstart', closeSidebar, false);
-
-  //--------------------------------------------
-  //FORM INTERACTION
-  //--------------------------------------------
-  $formFields.forEach(field => {
-    const listener = field.addEventListener('change', (ev) => {
-      ev.target.classList.add('interacted');
-      field.removeEventListener(listener);
-    }, false);
-  });
 })();

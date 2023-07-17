@@ -4,10 +4,59 @@
     ViewData["Title"] = "Contact Us";
 }
 
+@section Scripts {
+    <script>
+        const $form = document.getElementById("contact-form");
+        const $formFields = Array.from($form.querySelectorAll('input, textarea'));
+        const $status = document.getElementById("form-status");
+        const errorClass = 'invalid-msg';
+
+        $formFields.forEach(field => {
+            const listener = field.addEventListener('change', (ev) => {
+                ev.target.classList.add('interacted');
+                field.removeEventListener(listener);
+            }, false);
+        });
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            
+            var data = new FormData(event.target);
+            fetch(event.target.action, {
+                method: $form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    $status.innerHTML = "Thanks! We'll be in contact with you soon!";
+                    $status.classList.remove(errorClass);
+                    $form.style.display = "none"
+                    $form.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            $status.classList.add(errorClass)
+                            $status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            $status.classList.add(errorClass)
+                            $status.innerHTML = "Oops! There was a problem submitting your form"
+                        }
+                    })
+                }
+            }).catch(error => {
+                $status.classList.add(errorClass)
+                $status.innerHTML = "Oops! There was a problem submitting your form"
+            });
+        }
+        $form.addEventListener("submit", handleSubmit);
+    </script>
+}
+
 <h2>@ViewData["Title"]</h2>
 
-
-<form>
+<form id="contact-form" method="post" action="https://formspree.io/f/xeqboqvk">
     <div class="form-group">
         <input type="text"
                class="form-ctrl"
@@ -27,19 +76,14 @@
                autocomplete="email"
                placeholder="name@exmaple.com"
                required
-               email/>
+               email />
         <label for="email">Email</label>
-    </div>
-
-    <div class="form-group" style="display: none" aria-hidden="true">
-        <input type="text" class="form-ctrl" id="subject" name="subject" placeholder="subject" />
-        <label for="subject">Subject</label>
     </div>
 
     <div class="form-group">
         <textarea id="message"
-                  class="form-ctrl"
                   name="message"
+                  class="form-ctrl"
                   cols="30"
                   rows="10"
                   placeholder="Your Message"
@@ -48,7 +92,9 @@
         <label for="message">Message</label>
     </div>
 
-    <div id="btn-and-response">
+    <div class="form-group">
         <button type="submit" class="btn">Send!</button>
     </div>
 </form>
+
+<div id="form-status"></div>
