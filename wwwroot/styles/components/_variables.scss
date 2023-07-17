@@ -126,7 +126,7 @@ $form-label-color: $theme-color-text;
 $form-label-focus-color: rgba($form-label-color, 0.65);
 $form-label-padding: 1rem $spacer-sm;
 $form-label-transition-speed: $duration;
-$form-label-transition-easing: $ease-out-back;
+$form-label-transition-easing: $ease-out-expo;
 $form-label-invalid-color: $theme-color-error;
 $form-label-zindex: 2;
 
@@ -157,3 +157,28 @@ $form-ctrl-invalid-focus-shadow: 0 0 0 3px rgba($theme-color-error, .4);
 
 $form-ctrl-transition-speed: $duration-fast;
 $form-ctrl-transition-easing: ease-in-out;
+
+
+//---------------------------
+//BUTTONS
+$btn-transition-speed: $duration;
+$btn-transition-easing: $ease-out-expo;
+$btn-line-height: 1.2;
+$btn-font-weight: $font-weight-regular;
+$btn-font-size: 1rem;
+$btn-padding: $spacer-sm $spacer;
+$btn-radius: $radius-sm;
+$btn-border-width: 1px;
+
+$btn-color: $color-light;
+$btn-border-color: darken($theme-color-highlight, 10%);
+$btn-color-bg: $theme-color-highlight;
+
+$btn-hover-color: $color-light;
+$btn-hover-color-bg: darken($theme-color-highlight, 10%);
+$btn-hover-color-border: darken($theme-color-highlight, 15%);
+
+$btn-focus-color: $color-light;
+$btn-focus-color-bg: darken($theme-color-highlight, 15%);
+$btn-focus-color-border: darken($theme-color-highlight, 20%);
+$btn-focus-shadow: 0 0 0 3px rgba($theme-color-highlight,.5);

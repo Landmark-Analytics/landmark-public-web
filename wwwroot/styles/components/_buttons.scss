@@ -1,0 +1,36 @@
+@import "variables";
+@import "mixins";
+
+.btn {
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height;
+  color: $btn-color;
+  font-size: $btn-font-size;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: $btn-color-bg;
+  border: $btn-border-width solid $btn-border-color;
+  padding: $btn-padding;
+  border-radius: $btn-radius;
+  transition: color $btn-transition-speed $btn-transition-easing, background-color $btn-transition-speed $btn-transition-easing, border-color $btn-transition-speed $btn-transition-easing, box-shadow $btn-transition-speed $btn-transition-easing;
+
+  &:hover {
+    color: $btn-hover-color;
+    background-color: $btn-hover-color-bg;
+    border-color: $btn-hover-color-border;
+  }
+
+  &:focus {
+    color: $btn-focus-color;
+    background-color: $btn-focus-color-bg;
+    border-color: $btn-focus-color-border;
+    box-shadow: $btn-focus-shadow;
+    outline: 0;
+  }
+}
