@@ -1,11 +1,122 @@
 @import "variables";
 @import "mixins";
 
-.form-ctrl{
-    margin-bottom: $spacer;
+.form-group {
+  position: relative;
+  margin: $form-group-margin;
 
-    label {
-        display: block;
-        font-weight: $font-weight-semibold;
+  label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: $form-label-zindex;
+    height: 100%;
+    padding: $form-label-padding;
+    color: $form-label-color;
+    overflow: hidden;
+    text-align: start;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    pointer-events: none;
+    border: $form-ctrl-border-width solid transparent;
+    transform-origin: 0 0;
+    transition: opacity $form-label-transition-speed $form-label-transition-easing, transform $form-label-transition-speed $form-label-transition-easing;
+  }
+}
+
+.form-ctrl {
+  display: block;
+  width: 100%;
+  font-family: $form-ctrl-font-family;
+  font-size: $form-ctrl-font-size;
+  padding: $form-ctrl-padding;
+  background-color: $form-ctrl-bg;
+  background-clip: padding-box;
+  outline-width: 0;
+  border: $form-ctrl-border-width solid $form-ctrl-border-color;
+  border-radius: $form-ctrl-radius;
+  height: $form-ctrl-height;
+  min-height: $form-ctrl-height;
+  line-height: $form-ctrl-line-height;
+  transition: outline-color $form-ctrl-transition-speed $form-ctrl-transition-easing, border-color $form-ctrl-transition-speed $form-ctrl-transition-easing, box-shadow $form-ctrl-transition-speed $form-ctrl-transition-easing;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:focus {
+    border-color: $form-ctrl-focus-border-color;
+    box-shadow: $form-ctrl-focus-shadow;
+  }
+
+  &:focus,
+  &:not(:placeholder-shown) {
+    padding-top: $form-ctrl-focus-padding-top;
+    padding-bottom: $form-ctrl-focus-padding-bottom;
+  }
+
+  &:-webkit-autofill {
+    padding-top: $form-ctrl-focus-padding-top;
+    padding-bottom: $form-ctrl-focus-padding-bottom;
+  }
+
+  &:focus,
+  &:not(:placeholder-shown) {
+    ~ label {
+      color: $form-label-focus-color;
+      transform: $form-label-focus-transforms;
+
+      &::after {
+        position: absolute;
+        inset: 1rem 0.375rem;
+        z-index: -1;
+        height: 1.5em;
+        content: "";
+        background-color: transparent;
+        border-radius: $form-ctrl-radius;
+      }
     }
+  }
+  // Duplicated because `:-webkit-autofill` invalidates other selectors when grouped
+  &:-webkit-autofill {
+    ~ label {
+      color: $form-label-focus-color;
+      transform: $form-label-focus-transforms;
+    }
+  }
+
+  &.invalid,
+  &.interacted:invalid {
+    background-color: $form-ctrl-invalid-bg-color;
+    border-color: $form-ctrl-invalid-border-color;
+
+    &:focus {
+      border-color: $form-ctrl-invalid-focus-border-color;
+      box-shadow: $form-ctrl-invalid-focus-shadow;
+    }
+
+    ~ label {
+      color: $form-label-invalid-color;
+    }
+
+    &:required{
+        ~ .invalid-msg-required{
+            display: block;
+        }
+    }
+
+  }
+}
+
+textarea.form-ctrl {
+  resize: vertical;
+  min-height: $form-ctrl-textarea-min-height;
+  height: $form-ctrl-textarea-min-height;
+  max-height: $form-ctrl-textarea-max-height;
+}
+
+.invalid-msg {
+  display: none;
+  color: $form-invalid-msg-color;
+  font-weight: $form-invalid-msg-weight;
 }

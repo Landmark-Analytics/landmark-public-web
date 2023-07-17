@@ -8,27 +8,47 @@
 
 
 <form>
-    <div class="form-ctrl">
-        <label for="name">
-            Name
-        </label>
-        <input type="text" id="name" />
+    <div class="form-group">
+        <input type="text"
+               class="form-ctrl"
+               id="name"
+               name="name"
+               placeholder="Your Name"
+               autocomplete="name"
+               required />
+        <label for="name">Name</label>
     </div>
 
-    <div class="form-ctrl">
-        <label for="email">
-            Email
-        </label>
-        <input type="email" id="email" />
+    <div class="form-group">
+        <input type="email"
+               class="form-ctrl"
+               id="email"
+               name="email"
+               autocomplete="email"
+               placeholder="name@exmaple.com"
+               required
+               email/>
+        <label for="email">Email</label>
+    </div>
 
+    <div class="form-group" style="display: none" aria-hidden="true">
+        <input type="text" class="form-ctrl" id="subject" name="subject" placeholder="subject" />
+        <label for="subject">Subject</label>
     </div>
-    <div class="form-ctrl">
-        <label for="message">
-            Message
-        </label>
-        <textarea id="message"></textarea>
+
+    <div class="form-group">
+        <textarea id="message"
+                  class="form-ctrl"
+                  name="message"
+                  cols="30"
+                  rows="10"
+                  placeholder="Your Message"
+                  required
+                  minlength="20"></textarea>
+        <label for="message">Message</label>
     </div>
-    <div class="form-ctrl">
-        <button type="submit">Send</button>
+
+    <div id="btn-and-response">
+        <button type="submit" class="btn">Send!</button>
     </div>
 </form>

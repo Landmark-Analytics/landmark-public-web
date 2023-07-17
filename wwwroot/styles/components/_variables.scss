@@ -27,6 +27,7 @@ $theme-color-bg: $color-light;
 $theme-color-highlight: $color-red;
 $theme-bg-image-visible-height: 200px;
 $theme-bg-image-visible-height-desktop: 450px;
+$theme-color-error: darken($theme-color-highlight, 25%);
 
 
 //---------------------------
@@ -114,3 +115,45 @@ $footer-padding: 0 0 $spacer 0;
 //MAIN CONTENT
 $main-padding: $spacer 0;
 $main-color-bg: $theme-color-bg;
+
+
+//---------------------------
+//FORMS
+$form-group-margin: 0 0 $spacer 0;
+
+$form-label-focus-transforms: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+$form-label-color: $theme-color-text;
+$form-label-focus-color: rgba($form-label-color, 0.65);
+$form-label-padding: 1rem $spacer-sm;
+$form-label-transition-speed: $duration;
+$form-label-transition-easing: $ease-out-back;
+$form-label-invalid-color: $theme-color-error;
+$form-label-zindex: 2;
+
+$form-invalid-msg-color: $theme-color-error;
+$form-invalid-msg-weight: $font-weight-semibold;
+
+$form-ctrl-font-family: $font-family;
+$form-ctrl-font-size: 1rem;
+$form-ctrl-bg: #fff;
+$form-ctrl-border-width: 1px;
+$form-ctrl-border-color: $form-label-focus-color;
+$form-ctrl-radius: $radius-sm;
+$form-ctrl-height: calc(3rem + $form-ctrl-border-width * 2);
+$form-ctrl-line-height: 1.25;
+$form-ctrl-padding: $spacer-sm;
+
+$form-ctrl-textarea-min-height: 150px;
+$form-ctrl-textarea-max-height: 500px;
+
+$form-ctrl-focus-border-color: $color-dark;
+$form-ctrl-focus-shadow: 0 0 0 3px rgba($form-ctrl-border-color, .2);
+$form-ctrl-focus-padding-top: 1.625rem;
+$form-ctrl-focus-padding-bottom: 0.625rem;
+$form-ctrl-invalid-bg-color: lighten($theme-color-error, 70%);
+$form-ctrl-invalid-border-color: rgba($theme-color-error, .6);
+$form-ctrl-invalid-focus-border-color: $theme-color-error;
+$form-ctrl-invalid-focus-shadow: 0 0 0 3px rgba($theme-color-error, .4);
+
+$form-ctrl-transition-speed: $duration-fast;
+$form-ctrl-transition-easing: ease-in-out;
