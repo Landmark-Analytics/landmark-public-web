@@ -23,6 +23,17 @@ body {
   flex-direction: column;
 }
 
+* {
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: $focus-outline-width solid $focus-outline-color;
+    box-shadow: $focus-shadow;
+  }
+}
+
 a {
   color: $link-color;
   text-decoration: none;
@@ -30,14 +41,6 @@ a {
   &:hover {
     color: $link-color-hover;
     text-decoration: underline;
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  &:focus-visible {
-    outline: $link-focus-outline-width solid $link-focus-outline-color;
   }
 }
 

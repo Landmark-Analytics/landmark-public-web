@@ -50,7 +50,7 @@
     color: $nav-link-color;
     border: 0 solid transparent;
 
-    &:hover {
+    &:hover, &:focus {
       text-decoration: none;
       border-color: $nav-link-active-border-color;
     }

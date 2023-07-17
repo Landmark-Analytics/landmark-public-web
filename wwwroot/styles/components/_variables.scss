@@ -45,11 +45,15 @@ $font-size-lg: 2.5rem;
 $ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
 $ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 $duration: 400ms;
+$duration-fast: $duration/2;
 $shadow: rgba($color-dark, 30%) 0 0 15px 5px;
+$radius: 1rem;
+$radius-sm: $radius / 2;
 $link-color: $theme-color-highlight;
 $link-color-hover: lighten($theme-color-highlight, 5%);
-$link-focus-outline-color: $theme-color-highlight;
-$link-focus-outline-width: 2px;
+$focus-outline-color: rgba($theme-color-highlight, .6);
+$focus-outline-width: 2px;
+$focus-shadow: 0 0 10px rgba($theme-color-highlight, .6), inset 0 0 10px rgba($theme-color-highlight, .2);
 
 
 //---------------------------
