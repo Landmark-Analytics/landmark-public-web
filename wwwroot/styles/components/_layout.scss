@@ -60,6 +60,17 @@ a {
   background: $main-color-bg;
   padding: $footer-padding;
   text-align: center;
+
+  a{
+      display: inline-block;
+  }
+
+  svg {
+    fill: $theme-color-text;
+    vertical-align: bottom;
+    width: 20px;
+    height: 20px;
+  }
 }
 
 

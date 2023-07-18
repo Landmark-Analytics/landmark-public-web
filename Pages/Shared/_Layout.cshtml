@@ -32,7 +32,7 @@
         <div class="nav-spacer">
             <a href="#" id="side-nav-toggle" aria-label="navigation">&#9776;</a>
         </div>
-        
+
         <h1>
             <span id="header-text">Landmark Analytics</span>
             <partial name="_LandmarkLogoSvg" model='new {id="header-logo"}'>
@@ -57,11 +57,15 @@
     </main>
 
     <footer id="footer">
-        Copyright @DateTime.Now.Year Landmark Analytics
+        &copy; @DateTime.Now.Year Landmark Analytics |
+        <a href="https://www.linkedin.com/company/landmark-analytics"><svg role="img" aria-label="LinkedIn"><use xlink:href="#linkedin-letters" /></svg></a>
     </footer>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <partial name="_SvgIcons">
+
     <!--Environment: @Env.EnvironmentName-->
 </body>
 </html>
