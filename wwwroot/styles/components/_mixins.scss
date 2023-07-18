@@ -38,6 +38,9 @@
   @return if($min != 0, $min, null);
 }
 
+@function breakpoint-infix($name) {
+  @return if(breakpoint-min($name) == null, "", "-#{$name}");
+}
 
 // Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
 // Makes the @content apply to the given breakpoint and wider.
@@ -51,5 +54,35 @@
   }
   @else {
     @content;
+  }
+}
+
+@mixin make-grid-columns() {
+  @each $breakpoint in map-keys(variables.$grid-breakpoints) {
+    $infix: breakpoint-infix($breakpoint);
+
+    @include breakpoint-up($breakpoint) {
+      // Provide basic `.col-{bp}` classes for equal-width flexbox columns
+      .col#{$infix} {
+        flex: 1 0 0%; // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+      }
+
+      @for $i from 1 through variables.$grid-columns {
+        .col#{$infix}-#{$i} {
+          @include make-col($i);
+        }
+      }
+    }
+  }
+}
+
+@mixin make-col($size: false) {
+  @if $size {
+    flex: 0 0 auto;
+    width: percentage($size / variables.$grid-columns);
+  }
+  @else {
+    flex: 1 1 0;
+    max-width: 100%;
   }
 }

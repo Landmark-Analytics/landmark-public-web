@@ -17,3 +17,16 @@
 .text-success {
   color: $theme-color-success;
 }
+
+.row {
+  display: grid;
+  flex-wrap: wrap;
+  gap: $spacer;
+
+  > * {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@include make-grid-columns();
