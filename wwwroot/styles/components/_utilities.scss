@@ -5,3 +5,10 @@
     max-width: 900px;
     padding: 0 $spacer;
 }
+
+.text-error {
+  color: $theme-color-error;
+}
+.text-success {
+  color: $theme-color-success;
+}

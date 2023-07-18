@@ -1,10 +1,6 @@
 @import "variables";
 @import "mixins";
 
-#header-navigation {
-  display: none;
-}
-
 #sidebar {
   position: fixed;
   left: 0;
@@ -46,7 +42,6 @@
   font-size: $nav-font-size;
 
   a {
-    padding: $desktop-nav-padding;
     color: $nav-link-color;
     border: 0 solid transparent;
 
@@ -74,6 +69,18 @@
   }
 }
 
+#header-navigation {
+  display: none; //default, but overridden below
+
+  justify-content: center;
+  width: 100%;
+
+  a {
+    padding: $desktop-nav-padding;
+    border-bottom-width: $nav-link-border-width;
+  }
+}
+
 @include breakpoint-up($grid-desktop-min-size) {
   //Desktop overrides
 
@@ -84,12 +91,5 @@
 
   #header-navigation {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
-
-    a {
-      padding: $desktop-nav-padding;
-      border-bottom-width: $nav-link-border-width;
-    }
   }
 }

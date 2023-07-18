@@ -98,13 +98,6 @@
     ~ label {
       color: $form-label-invalid-color;
     }
-
-    &:required{
-        ~ .invalid-msg-required{
-            display: block;
-        }
-    }
-
   }
 }
 
@@ -113,10 +106,4 @@ textarea.form-ctrl {
   min-height: $form-ctrl-textarea-min-height;
   height: $form-ctrl-textarea-min-height;
   max-height: $form-ctrl-textarea-max-height;
-}
-
-.invalid-msg {
-  display: none;
-  color: $form-invalid-msg-color;
-  font-weight: $form-invalid-msg-weight;
 }

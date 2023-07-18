@@ -9,7 +9,7 @@
         const $form = document.getElementById("contact-form");
         const $formFields = Array.from($form.querySelectorAll('input, textarea'));
         const $status = document.getElementById("form-status");
-        const errorClass = 'invalid-msg';
+        const errorClass = 'text-error';
 
         $formFields.forEach(field => {
             const listener = field.addEventListener('change', (ev) => {
@@ -32,6 +32,7 @@
                 if (response.ok) {
                     $status.innerHTML = "Thanks! We'll be in contact with you soon!";
                     $status.classList.remove(errorClass);
+                    $status.classList.add('text-success');
                     $form.style.display = "none"
                     $form.reset();
                 } else {

@@ -28,6 +28,7 @@ $theme-color-highlight: $color-red;
 $theme-bg-image-visible-height: 200px;
 $theme-bg-image-visible-height-desktop: 450px;
 $theme-color-error: darken($theme-color-highlight, 25%);
+$theme-color-success: adjust-hue($theme-color-error, 150deg);
 
 
 //---------------------------
@@ -99,7 +100,7 @@ $side-nav-link-padding: $spacer-sm $spacer $spacer-sm calc($spacer - $nav-link-b
 //---------------------------
 //HEADER NAVIGATION (desktop)
 $desktop-nav-padding-v: $spacer-sm;
-$desktop-nav-padding-h: $spacer-sm;
+$desktop-nav-padding-h: $spacer-lg;
 $desktop-nav-padding: $desktop-nav-padding-v $desktop-nav-padding-h calc($desktop-nav-padding-v - $nav-link-border-width) $desktop-nav-padding-h;
 
 $computed-header-height: calc($header-logo-height + ($header-logo-margin-v * 2));
@@ -128,9 +129,6 @@ $form-label-transition-speed: $duration;
 $form-label-transition-easing: $ease-out-expo;
 $form-label-invalid-color: $theme-color-error;
 $form-label-zindex: 2;
-
-$form-invalid-msg-color: $theme-color-error;
-$form-invalid-msg-weight: $font-weight-semibold;
 
 $form-ctrl-font-family: $font-family;
 $form-ctrl-font-size: 1rem;
