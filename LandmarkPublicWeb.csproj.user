@@ -3,6 +3,6 @@
   <PropertyGroup>
     <RazorPage_SelectedScaffolderID>RazorPageScaffolder</RazorPage_SelectedScaffolderID>
     <RazorPage_SelectedScaffolderCategoryPath>root/Common/RazorPage</RazorPage_SelectedScaffolderCategoryPath>
-    <NameOfLastUsedPublishProfile>C:\Users\chris\Landmark\landmark-public-web\Properties\PublishProfiles\dev.landmarkanalytics.com - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>dev.landmarkanalytics.com - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>
