@@ -7,7 +7,7 @@
     padding: 0 $spacer;
 }
 
-.hidden-svg {
+.visually-hidden {
   @include visually-hidden;
 }
 
@@ -18,14 +18,20 @@
   color: $theme-color-success;
 }
 
+.icon {
+    width: 32px;
+    height: 32px;
+}
+
 .row {
-  display: grid;
+  display: flex;
   flex-wrap: wrap;
-  gap: $spacer;
+  margin: 0 ($grid-gutter/2 * -1);
 
   > * {
     width: 100%;
     max-width: 100%;
+    padding: 0 $grid-gutter/2;
   }
 }
 

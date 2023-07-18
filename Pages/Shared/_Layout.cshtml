@@ -35,17 +35,17 @@
 
         <h1>
             <span id="header-text">Landmark Analytics</span>
-            <partial name="_LandmarkLogoSvg" model='new {id="header-logo"}'>
+            <partial name="_LandmarkLogoSvg" model='new {id="header-logo"}' />
         </h1>
         <div class="nav-spacer"></div>
         <nav id="header-navigation" class="container">
-            <partial name="_NavigationLinks">
+            <partial name="_NavigationLinks" />
         </nav>
     </header>
 
     <aside id="sidebar">
         <nav id="side-navigation">
-            <partial name="_NavigationLinks">
+            <partial name="_NavigationLinks" />
         </nav>
     </aside>
     <div id="sidebar-backdrop"></div>
@@ -58,13 +58,16 @@
 
     <footer id="footer">
         &copy; @DateTime.Now.Year Landmark Analytics |
-        <a href="https://www.linkedin.com/company/landmark-analytics"><svg role="img" aria-label="LinkedIn"><use xlink:href="#linkedin-letters" /></svg></a>
+        <a href="https://www.linkedin.com/company/landmark-analytics">
+            <svg role="img"><use xlink:href="#linkedin-letters" /></svg>
+            <span class="visually-hidden">LinkedIn</span>
+        </a>
     </footer>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
-    <partial name="_SvgIcons">
+    <partial name="_SvgIcons" />
 
     <!--Environment: @Env.EnvironmentName-->
 </body>

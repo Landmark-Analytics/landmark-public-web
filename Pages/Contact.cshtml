@@ -20,7 +20,7 @@
 
         async function handleSubmit(event) {
             event.preventDefault();
-            
+
             var data = new FormData(event.target);
             fetch(event.target.action, {
                 method: $form.method,
@@ -55,47 +55,74 @@
     </script>
 }
 
-<h2>@ViewData["Title"]</h2>
+<div class="row">
+    <div class="col-sm-8">
+        <h2>Send Us a Message</h2>
+        <form id="contact-form" method="post" action="https://formspree.io/f/xeqboqvk">
+            <div class="form-group">
+                <input type="text"
+                       class="form-ctrl"
+                       id="name"
+                       name="name"
+                       placeholder="Your Name"
+                       autocomplete="name"
+                       required />
+                <label for="name">Name</label>
+            </div>
 
-<form id="contact-form" method="post" action="https://formspree.io/f/xeqboqvk">
-    <div class="form-group">
-        <input type="text"
-               class="form-ctrl"
-               id="name"
-               name="name"
-               placeholder="Your Name"
-               autocomplete="name"
-               required />
-        <label for="name">Name</label>
+            <div class="form-group">
+                <input type="email"
+                       class="form-ctrl"
+                       id="email"
+                       name="email"
+                       autocomplete="email"
+                       placeholder="name@exmaple.com"
+                       required
+                       email />
+                <label for="email">Email</label>
+            </div>
+
+            <div class="form-group">
+                <textarea id="message"
+                          name="message"
+                          class="form-ctrl"
+                          cols="30"
+                          rows="10"
+                          placeholder="Your Message"
+                          required
+                          minlength="20"></textarea>
+                <label for="message">Message</label>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn">Send!</button>
+            </div>
+        </form>
+
+        <div id="form-status"></div>
+
     </div>
+    <div class="col-sm-4">
+        <h2>Get In Touch</h2>
 
-    <div class="form-group">
-        <input type="email"
-               class="form-ctrl"
-               id="email"
-               name="email"
-               autocomplete="email"
-               placeholder="name@exmaple.com"
-               required
-               email />
-        <label for="email">Email</label>
+        @*VCard microformat address - http://microformats.org/wiki/hcard#Property_List*@
+        <address class="vcard">
+            <strong class="fn org">Landmark Analytics LLC</strong> <br />
+            <span class="adr">
+                <span class="street-address">2300 Bethelview Rd. Suite 110-456</span>
+                <span class="locality">Cumming</span>,
+                <abbr class="region" title="Georgia">GA</abbr>&nbsp;&nbsp;
+                <span class="postal-code">30040</span>
+                <span class="country-name">USA</span>
+            </span>
+        </address>
+
+        <hr />
+
+        <a href="https://www.linkedin.com/company/landmark-analytics" target="_blank">
+            <svg class="icon" role="img"><use xlink:href="#linkedin-filled" /></svg>
+            <span class="visually-hidden">LinkedIn</span>
+        </a>
     </div>
+</div>
 
-    <div class="form-group">
-        <textarea id="message"
-                  name="message"
-                  class="form-ctrl"
-                  cols="30"
-                  rows="10"
-                  placeholder="Your Message"
-                  required
-                  minlength="20"></textarea>
-        <label for="message">Message</label>
-    </div>
-
-    <div class="form-group">
-        <button type="submit" class="btn">Send!</button>
-    </div>
-</form>
-
-<div id="form-status"></div>
