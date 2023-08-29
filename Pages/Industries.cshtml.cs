@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace LandmarkPublicWeb.Pages
 {
-  public class IndustryModel : PageModel
+  public class IndustriesModel : PageModel
   {
-    private readonly ILogger<IndustryModel> _logger;
+    private readonly ILogger<IndustriesModel> _logger;
 
-    public IndustryModel(ILogger<IndustryModel> logger)
+    public IndustriesModel(ILogger<IndustriesModel> logger)
     {
       _logger = logger;
     }

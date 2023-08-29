@@ -1,7 +1,7 @@
 @page
 @model LandmarkPublicWeb.Pages.ContactModel
 @{
-    ViewData["Title"] = "Contact Us";
+    ViewData["Title"] = "Contact";
 }
 
 @section Scripts {
@@ -57,7 +57,7 @@
 
 <div class="row">
     <div class="col-sm-8">
-        <h2>Send Us a Message</h2>
+        <h2>Let's Talk</h2>
         <form id="contact-form" method="post" action="https://formspree.io/f/xeqboqvk">
             <div class="form-group">
                 <input type="text"
@@ -103,19 +103,13 @@
 
     </div>
     <div class="col-sm-4">
-        <h2>Get In Touch</h2>
+        <h2>Offices Locations</h2>
 
-        @*VCard microformat address - http://microformats.org/wiki/hcard#Property_List*@
-        <address class="vcard">
-            <strong class="fn org">Landmark Analytics LLC</strong> <br />
-            <span class="adr">
-                <span class="street-address">2300 Bethelview Rd. Suite 110-456</span>
-                <span class="locality">Cumming</span>,
-                <abbr class="region" title="Georgia">GA</abbr>&nbsp;&nbsp;
-                <span class="postal-code">30040</span>
-                <span class="country-name">USA</span>
-            </span>
-        </address>
+        <ul>
+            <li>Atlanta, GA</li>
+            <li>Charlotte, NC</li>
+            <li>Indianapolis, IN</li>
+        </ul>
 
         <hr />
 

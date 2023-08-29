@@ -7,7 +7,11 @@
 
 <h2>@ViewData["Title"]</h2>
 
-@if (!pageNotFound)
+@if (pageNotFound)
+{
+    <p>The URL <strong><code>@Model.OriginalPathAndQuery</code></strong> doesn't seem to exist!</p>
+}
+else
 {
 
     <h3>An error occurred while processing your request.</h3>
