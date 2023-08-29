@@ -4,6 +4,7 @@ $grid-columns: 12;
 $grid-gutter: 1.5rem;
 $grid-breakpoints: ( xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px, );
 $grid-desktop-min-size: md;
+$grid-desktop-container-max-size: lg;
 
 
 //---------------------------
@@ -36,12 +37,13 @@ $theme-color-success: adjust-hue($theme-color-error, 150deg);
 //---------------------------
 //TEXT
 $font-family: 'Raleway', sans-serif;
+$font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-semibold: 600;
 $font-size-xs: 0.75rem;
 $font-size-sm: 0.9rem;
-$font-size-md: 1.75rem;
-$font-size-lg: 2.5rem;
+$font-size-md: 1.25rem;
+$font-size-lg: 1.75rem;
 
 
 //---------------------------
@@ -68,7 +70,7 @@ $header-shadow: $shadow;
 $header-side-nav-toggle-color: $theme-color-text;
 $header-side-nav-toggle-color-active: $theme-color-highlight;
 $header-side-nav-toggle-color-bg-active: rgba($theme-color-highlight, .1);
-$header-side-nav-toggle-font-size: $font-size-md;
+$header-side-nav-toggle-font-size: $font-size-lg;
 $header-side-nav-toggle-padding: $spacer-sm $spacer;
 $header-logo-text-color: $theme-color-text;
 $header-logo-shape-color: $theme-color-highlight;

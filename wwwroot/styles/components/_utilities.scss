@@ -2,9 +2,9 @@
 @import "mixins";
 
 .container {
-    margin: 0 auto;
-    max-width: 900px;
-    padding: 0 $spacer;
+  margin: 0 auto;
+  max-width: map-get($grid-breakpoints, $grid-desktop-container-max-size);
+  padding: 0 $spacer;
 }
 
 .visually-hidden {
@@ -14,15 +14,23 @@
 .text-error {
   color: $theme-color-error;
 }
+
 .text-success {
   color: $theme-color-success;
 }
 
 .icon {
-    width: 32px;
-    height: 32px;
+  width: 32px;
+  height: 32px;
 }
 
+.mt-0{
+    margin-top:0;
+}
+
+
+//-----------------------------
+//Grid
 .row {
   display: flex;
   flex-wrap: wrap;
