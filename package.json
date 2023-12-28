@@ -1,23 +1,24 @@
 {
   "name": "landmark-public-web",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Landmark Analytics Public Website",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "private": true,
+  "author": "Landmark Analytics",
+  "homepage": "https://landmarkanalytics.com",
+  "license": "none",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Landmark-Analytics/landmark-public-web.git"
   },
-  "private": true,
-  "author": "Landmark Analytics",
-  "license": "none",
   "bugs": {
     "url": "https://github.com/Landmark-Analytics/landmark-public-web/issues"
   },
-  "homepage": "https://landmarkanalytics.com",
+  "scripts": {
+    "serve": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy"
+  },
   "devDependencies": {
-   
+    "@11ty/eleventy": "^2.0.1",
+    "sass": "^1.69.5"
   }
 }

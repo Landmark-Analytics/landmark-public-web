@@ -1,0 +1,45 @@
+@import "variables";
+@import "mixins";
+
+.container {
+  margin: 0 auto;
+  max-width: map-get($grid-breakpoints, $grid-desktop-container-max-size);
+  padding: 0 $spacer;
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.text-error {
+  color: $theme-color-error;
+}
+
+.text-success {
+  color: $theme-color-success;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+//-----------------------------
+//Grid
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 (calc($grid-gutter / 2) * -1);
+
+  > * {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 calc($grid-gutter / 2);
+  }
+}
+
+@include make-grid-columns();

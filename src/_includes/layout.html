@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="{{site.language}}" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#F5F5F5" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/img/favicon/site.webmanifest" />
+    <title>{{ site.name }} | {{ title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+    />
+    <link rel="stylesheet" href="{{ '/styles/site.css' | url }}" />
+    <!--{% include "google-analytics.html" %}-->
+  </head>
+  <body>
+    <header id="header">
+      <div class="nav-spacer">
+        <a href="#" id="side-nav-toggle" aria-label="navigation">&#9776;</a>
+      </div>
+
+      <h1>
+        <span id="header-text">{{ site.name }}</span>
+        {% include "logo-svg.html" id:"header-logo" %}
+      </h1>
+      <div class="nav-spacer"></div>
+      <nav id="header-navigation" class="container">
+        {% include "navigation-links.html" %}
+      </nav>
+    </header>
+
+    <aside id="sidebar">
+      <nav id="side-navigation">
+        {% include "navigation-links.html" %}
+      </nav>
+    </aside>
+    <div id="sidebar-backdrop"></div>
+
+    <main id="main-content" role="main">
+      <div class="container">{{ content }}</div>
+    </main>
+
+    <footer id="footer">
+      &copy; {{site.copyrightYear}} | A division of LaRue Enterprises, LLC |
+      <a href="https://www.linkedin.com/company/landmark-analytics">
+        <svg role="img"><use xlink:href="#linkedin-letters" /></svg>
+        <span class="visually-hidden">LinkedIn</span>
+      </a>
+    </footer>
+
+    <script src="{{ '/js/site.js' | url }}"></script>
+
+    {% include 'icons-svg.html' %}
+  </body>
+</html>

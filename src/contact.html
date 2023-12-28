@@ -1,0 +1,139 @@
+---
+layout: layout.html
+title: Contact
+---
+
+<div class="row">
+  <div class="col-sm-8">
+    <h2>Let's Talk</h2>
+    <form
+      id="contact-form"
+      method="post"
+      action="https://formspree.io/f/xeqboqvk"
+    >
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-ctrl"
+          id="name"
+          name="name"
+          placeholder="Your Name"
+          autocomplete="name"
+          required
+        />
+        <label for="name">Name</label>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="email"
+          class="form-ctrl"
+          id="email"
+          name="email"
+          autocomplete="email"
+          placeholder="name@exmaple.com"
+          required
+          email
+        />
+        <label for="email">Email</label>
+      </div>
+
+      <div class="form-group">
+        <textarea
+          id="message"
+          name="message"
+          class="form-ctrl"
+          cols="30"
+          rows="10"
+          placeholder="Your Message"
+          required
+          minlength="20"
+        ></textarea>
+        <label for="message">Message</label>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn">Send!</button>
+      </div>
+    </form>
+
+    <div id="form-status"></div>
+  </div>
+  <div class="col-sm-4">
+    <h2>Offices Locations</h2>
+
+    <ul>
+      <li>Atlanta, GA</li>
+      <li>Charlotte, NC</li>
+      <li>Indianapolis, IN</li>
+    </ul>
+
+    <hr />
+
+    <a
+      href="https://www.linkedin.com/company/landmark-analytics"
+      target="_blank"
+    >
+      <svg class="icon" role="img"><use xlink:href="#linkedin-filled" /></svg>
+      <span class="visually-hidden">LinkedIn</span>
+    </a>
+  </div>
+</div>
+
+<script>
+  const $form = document.getElementById("contact-form");
+  const $formFields = Array.from($form.querySelectorAll("input, textarea"));
+  const $status = document.getElementById("form-status");
+  const errorClass = "text-error";
+
+  $formFields.forEach((field) => {
+    const listener = field.addEventListener(
+      "change",
+      (ev) => {
+        ev.target.classList.add("interacted");
+        field.removeEventListener(listener);
+      },
+      false
+    );
+  });
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    var data = new FormData(event.target);
+    fetch(event.target.action, {
+      method: $form.method,
+      body: data,
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          $status.innerHTML = "Thanks! We'll be in contact with you soon!";
+          $status.classList.remove(errorClass);
+          $status.classList.add("text-success");
+          $form.style.display = "none";
+          $form.reset();
+        } else {
+          response.json().then((data) => {
+            if (Object.hasOwn(data, "errors")) {
+              $status.classList.add(errorClass);
+              $status.innerHTML = data["errors"]
+                .map((error) => error["message"])
+                .join(", ");
+            } else {
+              $status.classList.add(errorClass);
+              $status.innerHTML =
+                "Oops! There was a problem submitting your form";
+            }
+          });
+        }
+      })
+      .catch((error) => {
+        $status.classList.add(errorClass);
+        $status.innerHTML = "Oops! There was a problem submitting your form";
+      });
+  }
+  $form.addEventListener("submit", handleSubmit);
+</script>
