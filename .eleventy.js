@@ -1,16 +1,21 @@
-const sass = require("sass");
-const path = require("node:path");
+const sass = require('sass');
+const path = require('node:path');
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("src/img");
-  eleventyConfig.addPassthroughCopy("src/js");
+  eleventyConfig.addPassthroughCopy('src/img');
+  eleventyConfig.addPassthroughCopy('src/js');
 
-  eleventyConfig.addExtension("scss", {
-    outputFileExtension: "css",
+  eleventyConfig.addTemplateFormats('scss');
+  eleventyConfig.addExtension('scss', {
+    outputFileExtension: 'css',
     compile: function (inputContent, inputPath) {
-      let parsed = path.parse(inputPath);
+      let parsedPath = path.parse(inputPath);
+
+      //Skip include SCSS files that have a leading underscore
+      if (parsedPath.name.startsWith('_')) return;
+
       let result = sass.compileString(inputContent, {
-        loadPaths: [parsed.dir || ".", this.config.dir.includes],
+        loadPaths: [parsedPath.dir || '.', this.config.dir.includes],
       });
 
       return () => result.css;
@@ -19,7 +24,8 @@ module.exports = function (eleventyConfig) {
 
   return {
     dir: {
-      input: "src",
+      input: 'src',
+      output: 'dist',
     },
   };
 };
