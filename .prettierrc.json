@@ -7,7 +7,7 @@
     {
       "files": ["*.md"],
       "options": {
-        "printWidth": false,
+        "printWidth": 0,
         "trim_trailing_whitespace": false
       }
     }

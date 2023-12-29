@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{site.language}}" dir="ltr">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png" />
     <link rel="manifest" href="/img/favicon/site.webmanifest" />
-    <title>{{ site.name }} | {{ title }}</title>
+    <title>{{ site.name }}{% if title %} | {{ title }} {% endif %}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -51,14 +51,13 @@
 
     <footer id="footer">
       &copy; {{site.copyrightYear}} | A division of LaRue Enterprises, LLC |
-      <a href="https://www.linkedin.com/company/landmark-analytics">
+      <a href="{{site.linkedinUrl}}">
         <svg role="img"><use xlink:href="#linkedin-letters" /></svg>
         <span class="visually-hidden">LinkedIn</span>
       </a>
     </footer>
 
     <script src="{{ '/js/site.js' | url }}"></script>
-
     {% include 'icons-svg.html' %}
   </body>
 </html>

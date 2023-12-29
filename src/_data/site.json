@@ -1,7 +1,7 @@
 {
-  "language": "en",
   "copyrightYear": 2024,
   "name": "Landmark Analytics",
+  "linkedinUrl": "https://linkedin.com/company/landmark-analytics",
   "navigation": [
     { "name": "Home", "url": "/" },
     { "name": "Expertise", "url": "/expertise/" },

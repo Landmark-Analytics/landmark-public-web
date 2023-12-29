@@ -26,12 +26,13 @@ module.exports = function (eleventyConfig) {
     },
   });
 
-  eleventyConfig.addTransform('htmlmin', async (content, outputPath) => {
-    if (isBuildMode && outputPath.endsWith('.html')) {
+  eleventyConfig.addTransform('htmlMin', async (content, outputPath) => {
+    if (isBuildMode && (outputPath.endsWith('.html') || outputPath.endsWith('.liquid'))) {
       return htmlMin.minify(content, {
         collapseWhitespace: true,
         removeComments: true,
         useShortDoctype: true,
+        minifyJS: true,
       });
     }
 
