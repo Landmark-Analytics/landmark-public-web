@@ -16,8 +16,18 @@
       "type": "npm",
       "script": "build",
       "icon": {
-        "color": "terminal.ansiGreen",
+        "color": "terminal.ansiRed",
         "id": "root-folder"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Lint",
+      "type": "npm",
+      "script": "lint",
+      "icon": {
+        "color": "terminal.ansiCyan",
+        "id": "code"
       },
       "problemMatcher": []
     }
