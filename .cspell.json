@@ -2,14 +2,7 @@
   "version": "0.2",
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/master/cspell.schema.json",
   "language": "en",
-  "words": [
-    "Antiforgery",
-    "ASPNETCORE"
-  ],
+  "words": [],
   "flagWords": [],
-  "ignorePaths": [
-    "node_modules/**",
-    "package-lock.json",
-    "package.json"
-  ]
+  "ignorePaths": ["node_modules/**", "package-lock.json", "package.json"]
 }
