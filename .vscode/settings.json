@@ -10,5 +10,6 @@
   "explorer.fileNesting.patterns": {
     "package.json": "package-lock.json"
   },
-  "explorer.fileNesting.expand": false
+  "explorer.fileNesting.expand": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

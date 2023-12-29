@@ -1,5 +1,13 @@
 {
   "language": "en",
   "copyrightYear": 2024,
-  "name": "Landmark Analytics"
+  "name": "Landmark Analytics",
+  "navigation": [
+    { "name": "Home", "url": "/" },
+    { "name": "Expertise", "url": "/expertise/" },
+    { "name": "Industries", "url": "/industries/" },
+    { "name": "Solutions", "url": "/solutions/" },
+    { "name": "About", "url": "/about/" },
+    { "name": "Contact", "url": "/contact/" }
+  ]
 }

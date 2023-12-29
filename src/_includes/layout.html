@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{site.language}}" dir="ltr">
   <head>
     <meta charset="utf-8" />
@@ -24,7 +24,7 @@
       integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
     />
     <link rel="stylesheet" href="{{ '/styles/site.css' | url }}" />
-    <!--{% include "google-analytics.html" %}-->
+    {% include "google-analytics.liquid" %}
   </head>
   <body>
     <header id="header">
@@ -37,15 +37,11 @@
         {% include "logo-svg.html" id:"header-logo" %}
       </h1>
       <div class="nav-spacer"></div>
-      <nav id="header-navigation" class="container">
-        {% include "navigation-links.html" %}
-      </nav>
+      <nav id="header-navigation" class="container">{% include "navigation-links.liquid" %}</nav>
     </header>
 
     <aside id="sidebar">
-      <nav id="side-navigation">
-        {% include "navigation-links.html" %}
-      </nav>
+      <nav id="side-navigation">{% include "navigation-links.liquid" %}</nav>
     </aside>
     <div id="sidebar-backdrop"></div>
 

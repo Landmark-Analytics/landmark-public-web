@@ -40,7 +40,7 @@
 
   a {
     padding: $side-nav-link-padding;
-    border-left-width: $nav-link-border-width;
+    border-left-width: $nav-link-border-width !important;
   }
 }
 
@@ -51,7 +51,7 @@
 
   a {
     padding: $desktop-nav-padding;
-    border-bottom-width: $nav-link-border-width;
+    border-bottom-width: $nav-link-border-width !important;
   }
 }
 

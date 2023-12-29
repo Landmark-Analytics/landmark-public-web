@@ -6,11 +6,7 @@ title: Contact
 <div class="row">
   <div class="col-sm-8">
     <h2>Let's Talk</h2>
-    <form
-      id="contact-form"
-      method="post"
-      action="https://formspree.io/f/xeqboqvk"
-    >
+    <form id="contact-form" method="post" action="https://formspree.io/f/xeqboqvk">
       <div class="form-group">
         <input
           type="text"
@@ -70,10 +66,7 @@ title: Contact
 
     <hr />
 
-    <a
-      href="https://www.linkedin.com/company/landmark-analytics"
-      target="_blank"
-    >
+    <a href="https://www.linkedin.com/company/landmark-analytics" target="_blank">
       <svg class="icon" role="img"><use xlink:href="#linkedin-filled" /></svg>
       <span class="visually-hidden">LinkedIn</span>
     </a>
@@ -81,19 +74,19 @@ title: Contact
 </div>
 
 <script>
-  const $form = document.getElementById("contact-form");
-  const $formFields = Array.from($form.querySelectorAll("input, textarea"));
-  const $status = document.getElementById("form-status");
-  const errorClass = "text-error";
+  const $form = document.getElementById('contact-form');
+  const $formFields = Array.from($form.querySelectorAll('input, textarea'));
+  const $status = document.getElementById('form-status');
+  const errorClass = 'text-error';
 
   $formFields.forEach((field) => {
     const listener = field.addEventListener(
-      "change",
+      'change',
       (ev) => {
-        ev.target.classList.add("interacted");
+        ev.target.classList.add('interacted');
         field.removeEventListener(listener);
       },
-      false
+      false,
     );
   });
 
@@ -105,35 +98,32 @@ title: Contact
       method: $form.method,
       body: data,
       headers: {
-        Accept: "application/json",
+        Accept: 'application/json',
       },
     })
       .then((response) => {
         if (response.ok) {
           $status.innerHTML = "Thanks! We'll be in contact with you soon!";
           $status.classList.remove(errorClass);
-          $status.classList.add("text-success");
-          $form.style.display = "none";
+          $status.classList.add('text-success');
+          $form.style.display = 'none';
           $form.reset();
         } else {
           response.json().then((data) => {
-            if (Object.hasOwn(data, "errors")) {
+            if (Object.hasOwn(data, 'errors')) {
               $status.classList.add(errorClass);
-              $status.innerHTML = data["errors"]
-                .map((error) => error["message"])
-                .join(", ");
+              $status.innerHTML = data['errors'].map((error) => error['message']).join(', ');
             } else {
               $status.classList.add(errorClass);
-              $status.innerHTML =
-                "Oops! There was a problem submitting your form";
+              $status.innerHTML = 'Oops! There was a problem submitting your form';
             }
           });
         }
       })
       .catch((error) => {
         $status.classList.add(errorClass);
-        $status.innerHTML = "Oops! There was a problem submitting your form";
+        $status.innerHTML = 'Oops! There was a problem submitting your form';
       });
   }
-  $form.addEventListener("submit", handleSubmit);
+  $form.addEventListener('submit', handleSubmit);
 </script>
