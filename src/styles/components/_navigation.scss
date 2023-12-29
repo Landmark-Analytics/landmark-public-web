@@ -1,5 +1,5 @@
-@import "variables";
-@import "mixins";
+@import 'variables';
+@import 'mixins';
 
 #sidebar {
   position: fixed;
@@ -20,10 +20,7 @@
 
   &-backdrop {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     z-index: $sidebar-backdrop-z-index;
     background-color: $sidebar-backdrop-color;
     opacity: 0;
@@ -33,28 +30,6 @@
     .nav-open & {
       opacity: 1;
       pointer-events: all;
-    }
-  }
-}
-
-#side-navigation,
-#header-navigation {
-  font-size: $nav-font-size;
-
-  a {
-    color: $nav-link-color;
-    border: 0 solid transparent;
-
-    &:hover, &:focus {
-      text-decoration: none;
-      border-color: $nav-link-active-border-color;
-    }
-
-    &.current {
-      font-weight: $nav-link-active-font-weight;
-      color: $nav-link-active-color;
-      background-color: $nav-link-active-color-bg;
-      border-color: $nav-link-active-border-color;
     }
   }
 }
@@ -70,8 +45,7 @@
 }
 
 #header-navigation {
-  display: none; //default, but overridden below
-
+  display: none; // default, but overridden below
   justify-content: center;
   width: 100%;
 
@@ -81,8 +55,31 @@
   }
 }
 
+#side-navigation,
+#header-navigation {
+  font-size: $nav-font-size;
+
+  a {
+    color: $nav-link-color;
+    border: 0 solid transparent;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      border-color: $nav-link-active-border-color;
+    }
+
+    &.current {
+      font-weight: $nav-link-active-font-weight;
+      color: $nav-link-active-color;
+      background-color: $nav-link-active-color-bg;
+      border-color: $nav-link-active-border-color;
+    }
+  }
+}
+
 @include breakpoint-up($grid-desktop-min-size) {
-  //Desktop overrides
+  // Desktop overrides
 
   #sidebar,
   #sidebar-backdrop {

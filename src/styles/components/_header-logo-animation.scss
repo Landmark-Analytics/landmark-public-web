@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 $header-animation-duration: 0.7s;
 $header-animation-step-amount: 0.1s;
@@ -11,7 +11,7 @@ $header-animation-letter-easing: $ease-out-back;
     transform: translateX($header-animation-shape-start-offset-x);
   }
 
-  to {
+  100% {
     fill: $header-logo-shape-color;
     transform: translateX(0);
   }
@@ -23,15 +23,28 @@ $header-animation-letter-easing: $ease-out-back;
     transform: translateX($header-animation-shape-start-offset-x);
   }
 
-  to {
+  100% {
     fill: $header-logo-text-color;
     transform: translateX(0);
   }
 }
 
-//Only animate when the `.animate` class is added!
-//This is added by JavaScript on the first page load of a session
-//so it won't be repetitive/annoying across multiple pages
+#logo-text-analytics,
+#logo-text-landmark {
+  isolation: isolate;
+}
+
+#logo-shape-inner {
+  animation-delay: $header-animation-duration + $header-animation-step-amount;
+}
+
+#logo-shape-outer {
+  animation-delay: $header-animation-duration + ($header-animation-step-amount * 2);
+}
+
+// Only animate when the `.animate` class is added!
+// This is added by JavaScript on the first page load of a session
+// so it won't be repetitive/annoying across multiple pages
 #header-logo.animate {
   #logo-shape-inner,
   #logo-shape-outer,
@@ -53,29 +66,16 @@ $header-animation-letter-easing: $ease-out-back;
   }
 }
 
-#logo-text-analytics,
-#logo-text-landmark {
-  isolation: isolate;
-}
-
-#logo-shape-inner {
-  animation-delay: $header-animation-duration + $header-animation-step-amount;
-}
-
-#logo-shape-outer {
-  animation-delay: $header-animation-duration + ($header-animation-step-amount * 2);
-}
-
-//LANDMARK has 8 letters
+// LANDMARK has 8 letters
 @for $i from 0 through 7 {
-  #logo-text-landmark :nth-child(#{$i+1}) {
+  #logo-text-landmark :nth-child(#{$i + 1}) {
     animation-delay: 1s + ($header-animation-step-amount * $i);
   }
 }
 
-//ANALYTICS has 9 letters
+// ANALYTICS has 9 letters
 @for $i from 0 through 8 {
-  #logo-text-analytics :nth-child(#{$i+1}) {
-    animation-delay: .9s + ($header-animation-step-amount * $i);
+  #logo-text-analytics :nth-child(#{$i + 1}) {
+    animation-delay: 0.9s + ($header-animation-step-amount * $i);
   }
 }

@@ -1,5 +1,5 @@
-@import "variables";
-@import "mixins";
+@import 'variables';
+@import 'mixins';
 
 .form-group {
   position: relative;
@@ -20,7 +20,9 @@
     pointer-events: none;
     border: $form-ctrl-border-width solid transparent;
     transform-origin: 0 0;
-    transition: opacity $form-label-transition-speed $form-label-transition-easing, transform $form-label-transition-speed $form-label-transition-easing;
+    transition:
+      opacity $form-label-transition-speed $form-label-transition-easing,
+      transform $form-label-transition-speed $form-label-transition-easing;
   }
 }
 
@@ -38,7 +40,10 @@
   height: $form-ctrl-height;
   min-height: $form-ctrl-height;
   line-height: $form-ctrl-line-height;
-  transition: outline-color $form-ctrl-transition-speed $form-ctrl-transition-easing, border-color $form-ctrl-transition-speed $form-ctrl-transition-easing, box-shadow $form-ctrl-transition-speed $form-ctrl-transition-easing;
+  transition:
+    outline-color $form-ctrl-transition-speed $form-ctrl-transition-easing,
+    border-color $form-ctrl-transition-speed $form-ctrl-transition-easing,
+    box-shadow $form-ctrl-transition-speed $form-ctrl-transition-easing;
 
   &::placeholder {
     color: transparent;
@@ -53,15 +58,7 @@
   &:not(:placeholder-shown) {
     padding-top: $form-ctrl-focus-padding-top;
     padding-bottom: $form-ctrl-focus-padding-bottom;
-  }
 
-  &:-webkit-autofill {
-    padding-top: $form-ctrl-focus-padding-top;
-    padding-bottom: $form-ctrl-focus-padding-bottom;
-  }
-
-  &:focus,
-  &:not(:placeholder-shown) {
     ~ label {
       color: $form-label-focus-color;
       transform: $form-label-focus-transforms;
@@ -71,14 +68,17 @@
         inset: 1rem 0.375rem;
         z-index: -1;
         height: 1.5em;
-        content: "";
+        content: '';
         background-color: transparent;
         border-radius: $form-ctrl-radius;
       }
     }
   }
-  // Duplicated because `:-webkit-autofill` invalidates other selectors when grouped
+
   &:-webkit-autofill {
+    padding-top: $form-ctrl-focus-padding-top;
+    padding-bottom: $form-ctrl-focus-padding-bottom;
+
     ~ label {
       color: $form-label-focus-color;
       transform: $form-label-focus-transforms;

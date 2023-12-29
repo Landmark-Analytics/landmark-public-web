@@ -1,15 +1,19 @@
-@import "variables";
+@import 'variables';
 
 #main-content {
-  //h1 should not be used in the content!
-  h2, h3, h4, h5, h6 {
+  // h1 should not be used in the content!
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin: 0 0 $spacer 0;
     font-weight: $font-weight-semibold;
   }
 }
 
 .lead {
-  //for lead paragraphs
+  // for lead paragraphs
   font-size: $font-size-md;
   font-weight: $font-weight-light;
 }

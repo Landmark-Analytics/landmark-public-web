@@ -1,5 +1,5 @@
-@import "variables";
-@import "mixins";
+@import 'variables';
+@import 'mixins';
 
 .container {
   margin: 0 auto;
@@ -28,8 +28,8 @@
   margin-top: 0;
 }
 
-//-----------------------------
-//Grid
+// -----------------------------
+// Grid
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -42,4 +42,4 @@
   }
 }
 
-@include make-grid-columns();
+@include make-grid-columns;
