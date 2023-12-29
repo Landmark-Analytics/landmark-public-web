@@ -8,7 +8,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addTemplateFormats('scss');
   eleventyConfig.addExtension('scss', {
     outputFileExtension: 'css',
-    compile: function (inputContent, inputPath) {
+    compile: async function (inputContent, inputPath) {
       let parsedPath = path.parse(inputPath);
 
       //Skip include SCSS files that have a leading underscore
@@ -18,14 +18,11 @@ module.exports = function (eleventyConfig) {
         loadPaths: [parsedPath.dir || '.', this.config.dir.includes],
       });
 
-      return () => result.css;
+      return async () => result.css;
     },
   });
 
   return {
-    dir: {
-      input: 'src',
-      output: 'dist',
-    },
+    dir: { input: 'src' },
   };
 };

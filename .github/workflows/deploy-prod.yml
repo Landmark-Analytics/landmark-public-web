@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths-ignore: [".vscode/**", "README.md", ".*"]
+    paths-ignore: ['.vscode/**', 'README.md', '.*']
 permissions:
   contents: write
 jobs:
@@ -25,6 +25,6 @@ jobs:
           server: landmarkanalytics.com
           username: ${{ secrets.FTP_USERNAME_PROD }}
           password: ${{ secrets.FTP_PASSWORD_PROD }}
-          local-dir: ./dist/
+          local-dir: ./_site/
           server-dir: ./
           protocol: ftps
