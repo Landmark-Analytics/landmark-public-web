@@ -1,25 +1,41 @@
 const sass = require('sass');
 const path = require('node:path');
+const htmlMin = require('html-minifier');
 
 module.exports = function (eleventyConfig) {
+  const isBuildMode = process.env.ELEVENTY_RUN_MODE === 'build';
+
   eleventyConfig.addPassthroughCopy('src/img');
   eleventyConfig.addPassthroughCopy('src/js');
 
   eleventyConfig.addTemplateFormats('scss');
   eleventyConfig.addExtension('scss', {
     outputFileExtension: 'css',
-    compile: async function (inputContent, inputPath) {
-      let parsedPath = path.parse(inputPath);
+    compile: async (inputContent, inputPath) => {
+      const parsedPath = path.parse(inputPath);
 
       //Skip include SCSS files that have a leading underscore
       if (parsedPath.name.startsWith('_')) return;
 
-      let result = sass.compileString(inputContent, {
-        loadPaths: [parsedPath.dir || '.', this.config.dir.includes],
+      const result = sass.compileString(inputContent, {
+        loadPaths: [parsedPath.dir || '.', eleventyConfig.dir.includes],
+        style: isBuildMode ? 'compressed' : 'expanded',
       });
 
       return async () => result.css;
     },
+  });
+
+  eleventyConfig.addTransform('htmlmin', async (content, outputPath) => {
+    if (isBuildMode && outputPath.endsWith('.html')) {
+      return htmlMin.minify(content, {
+        collapseWhitespace: true,
+        removeComments: true,
+        useShortDoctype: true,
+      });
+    }
+
+    return content;
   });
 
   return {
