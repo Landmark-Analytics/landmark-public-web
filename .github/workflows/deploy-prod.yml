@@ -13,11 +13,11 @@ jobs:
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
-        
+
       - name: 🔧 Install & Build
         run: |
           npm ci
-          npm run build:gh-pages
+          npm run build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
