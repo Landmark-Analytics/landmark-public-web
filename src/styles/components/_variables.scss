@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 // ---------------------------
 // BREAKPOINTS
 $grid-columns: 12;
@@ -40,8 +42,8 @@ $theme-color-bg: $color-light;
 $theme-color-highlight: $color-red;
 $theme-bg-image-visible-height: 200px;
 $theme-bg-image-visible-height-desktop: 450px;
-$theme-color-error: darken($theme-color-highlight, 25%);
-$theme-color-success: adjust-hue($theme-color-error, 150deg);
+$theme-color-error: color.scale($theme-color-highlight, $lightness: -25%);
+$theme-color-success: color.adjust($theme-color-error, $hue: 150deg);
 
 // ---------------------------
 // TEXT
@@ -64,7 +66,7 @@ $shadow: rgba($color-dark, 30%) 0 0 15px 5px;
 $radius: 1rem;
 $radius-sm: calc($radius / 2);
 $link-color: $theme-color-highlight;
-$link-color-hover: lighten($theme-color-highlight, 5%);
+$link-color-hover: color.scale($theme-color-highlight, $lightness: 5%);
 $focus-outline-color: rgba($theme-color-highlight, 0.6);
 $focus-outline-width: $spacer-xs;
 
@@ -154,7 +156,7 @@ $form-ctrl-focus-border-color: $color-dark;
 $form-ctrl-focus-shadow: 0 0 0 $focus-outline-width rgba($form-ctrl-border-color, 0.2);
 $form-ctrl-focus-padding-top: 1.625rem;
 $form-ctrl-focus-padding-bottom: 0.625rem;
-$form-ctrl-invalid-bg-color: lighten($theme-color-error, 70%);
+$form-ctrl-invalid-bg-color: color.scale($theme-color-error, $lightness: 70%);
 $form-ctrl-invalid-border-color: rgba($theme-color-error, 0.6);
 $form-ctrl-invalid-focus-border-color: $theme-color-error;
 $form-ctrl-invalid-focus-shadow: 0 0 0 $focus-outline-width rgba($theme-color-error, 0.4);
@@ -172,12 +174,12 @@ $btn-padding: $spacer-sm $spacer;
 $btn-radius: $radius-sm;
 $btn-border-width: 1px;
 $btn-color: $color-light;
-$btn-border-color: darken($theme-color-highlight, 10%);
+$btn-border-color: color.scale($theme-color-highlight, $lightness: -10%);
 $btn-color-bg: $theme-color-highlight;
 $btn-hover-color: $color-light;
-$btn-hover-color-bg: darken($theme-color-highlight, 10%);
-$btn-hover-color-border: darken($theme-color-highlight, 15%);
+$btn-hover-color-bg: color.scale($theme-color-highlight, $lightness: -10%);
+$btn-hover-color-border: color.scale($theme-color-highlight, $lightness: -15%);
 $btn-focus-color: $color-light;
-$btn-focus-color-bg: darken($theme-color-highlight, 15%);
-$btn-focus-color-border: darken($theme-color-highlight, 20%);
+$btn-focus-color-bg: color.scale($theme-color-highlight, $lightness: -15%);
+$btn-focus-color-border: color.scale($theme-color-highlight, $lightness: -20%);
 $btn-focus-shadow: 0 0 0 $focus-outline-width rgba($theme-color-highlight, 0.5);
