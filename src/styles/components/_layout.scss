@@ -13,7 +13,7 @@ body {
 }
 
 html {
-  background: $theme-color-bg url('../img/lighthouse-bg-default.jpg') no-repeat 0 0;
+  background: $theme-color-light url('../img/lighthouse-bg-default.jpg') no-repeat 0 0;
   background-attachment: fixed;
   color: $theme-color-text;
   font-family: $font-family;
@@ -92,9 +92,9 @@ a {
   }
 }
 
-@media (min-width >= 1920px) {
-  // When the screen is wider than the large BG image, scale the image width to match
+@media (width >= 1920px) {
+  // When the screen is wider than the large BG image, center the BG image
   html {
-    background-size: 100% auto;
+    background-position: center 0;
   }
 }
