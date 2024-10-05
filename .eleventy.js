@@ -1,12 +1,25 @@
 const sass = require('sass');
 const path = require('node:path');
 const htmlMin = require('html-minifier');
+const esbuild = require('esbuild');
 
 module.exports = (eleventyConfig) => {
   const isBuildMode = process.env.ELEVENTY_RUN_MODE === 'build';
 
   eleventyConfig.addPassthroughCopy('src/img');
-  eleventyConfig.addPassthroughCopy('src/js');
+
+  eleventyConfig.addTemplateFormats('js');
+  eleventyConfig.addExtension('js', {
+    outputFileExtension: 'js',
+    compile: async (inputContent) => {
+      const result = await esbuild.transform(inputContent, {
+        minify: isBuildMode,
+        target: 'es2020',
+      });
+
+      return () => result.code;
+    },
+  });
 
   eleventyConfig.addTemplateFormats('scss');
   eleventyConfig.addExtension('scss', {
