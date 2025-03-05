@@ -27,7 +27,7 @@
     "@shopify/prettier-plugin-liquid": "^1.7.2",
     "esbuild": "^0.24.2",
     "eslint": "^9.19.0",
-    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-prettier": "^10.0.2",
     "eslint-plugin-prettier": "^5.2.1",
     "globals": "^15.14.0",
     "html-minifier": "^4.0.0",
