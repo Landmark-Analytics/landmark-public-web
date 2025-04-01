@@ -24,7 +24,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "@eslint/js": "^9.16.0",
-    "@shopify/prettier-plugin-liquid": "^1.7.2",
+    "@shopify/prettier-plugin-liquid": "^1.9.0",
     "esbuild": "^0.25.0",
     "eslint": "^9.21.0",
     "eslint-config-prettier": "^10.0.2",
