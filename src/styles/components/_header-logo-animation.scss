@@ -1,9 +1,9 @@
-@import 'variables';
+@use 'variables' as variables;
 
 $header-animation-duration: 0.7s;
 $header-animation-step-amount: 0.1s;
 $header-animation-shape-start-offset-x: -5px;
-$header-animation-letter-easing: $ease-out-back;
+$header-animation-letter-easing: variables.$ease-out-back;
 
 @keyframes animate-shape-fill {
   0% {
@@ -12,7 +12,7 @@ $header-animation-letter-easing: $ease-out-back;
   }
 
   100% {
-    fill: $header-logo-shape-color;
+    fill: variables.$header-logo-shape-color;
     transform: translateX(0);
   }
 }
@@ -24,7 +24,7 @@ $header-animation-letter-easing: $ease-out-back;
   }
 
   100% {
-    fill: $header-logo-text-color;
+    fill: variables.$header-logo-text-color;
     transform: translateX(0);
   }
 }

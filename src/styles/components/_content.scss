@@ -1,4 +1,4 @@
-@import 'variables';
+@use 'variables' as variables;
 
 #main-content {
   // h1 should not be used in the content!
@@ -7,13 +7,13 @@
   h4,
   h5,
   h6 {
-    margin: 0 0 $spacer;
-    font-weight: $font-weight-semibold;
+    margin: 0 0 variables.$spacer;
+    font-weight: variables.$font-weight-semibold;
   }
 }
 
 .lead {
   // for lead paragraphs
-  font-size: $font-size-md;
-  font-weight: $font-weight-light;
+  font-size: variables.$font-size-md;
+  font-weight: variables.$font-weight-light;
 }

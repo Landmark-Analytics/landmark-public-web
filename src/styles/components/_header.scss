@@ -1,5 +1,5 @@
-@import 'variables';
-@import 'mixins';
+@use 'variables' as variables;
+@use 'mixins' as mixins;
 
 #header {
   display: flex;
@@ -9,7 +9,7 @@
   top: 0;
   right: 0;
   left: 0;
-  z-index: $header-zindex;
+  z-index: variables.$header-zindex;
 
   h1 {
     margin: 0;
@@ -22,45 +22,45 @@
 }
 
 #header-text {
-  @include visually-hidden;
+  @include mixins.visually-hidden;
 }
 
 #side-nav-toggle {
   display: flex;
   align-items: center;
-  font-size: $header-side-nav-toggle-font-size;
-  padding: $header-side-nav-toggle-padding;
-  color: $header-side-nav-toggle-color;
+  font-size: variables.$header-side-nav-toggle-font-size;
+  padding: variables.$header-side-nav-toggle-padding;
+  color: variables.$header-side-nav-toggle-color;
   line-height: 1;
   height: 100%;
 
   &:active,
   &:focus,
   &:hover {
-    background-color: $header-side-nav-toggle-color-bg-active;
-    color: $header-side-nav-toggle-color-active;
+    background-color: variables.$header-side-nav-toggle-color-bg-active;
+    color: variables.$header-side-nav-toggle-color-active;
     text-decoration: none;
   }
 }
 
 #header-logo {
   display: block;
-  height: $header-logo-height;
-  margin: $header-logo-margin-v 0;
+  height: variables.$header-logo-height;
+  margin: variables.$header-logo-margin-v 0;
   overflow: visible;
 }
 
 #logo-shape-inner,
 #logo-shape-outer {
-  fill: $header-logo-shape-color;
+  fill: variables.$header-logo-shape-color;
 }
 
 #logo-text-analytics,
 #logo-text-landmark {
-  fill: $header-logo-text-color;
+  fill: variables.$header-logo-text-color;
 }
 
-@include breakpoint-up($grid-desktop-min-size) {
+@include mixins.breakpoint-up(variables.$grid-desktop-min-size) {
   // Desktop overrides
 
   #header {
@@ -77,7 +77,7 @@
   }
 
   #header-logo {
-    height: $header-desktop-logo-height;
-    margin: $header-desktop-logo-margin-v 0;
+    height: variables.$header-desktop-logo-height;
+    margin: variables.$header-desktop-logo-margin-v 0;
   }
 }

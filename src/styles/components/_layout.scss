@@ -1,5 +1,5 @@
-@import 'variables';
-@import 'mixins';
+@use 'variables' as variables;
+@use 'mixins' as mixins;
 
 *,
 *::before,
@@ -13,10 +13,10 @@ body {
 }
 
 html {
-  background: $theme-color-light url('../img/lighthouse-bg-default.jpg') no-repeat 0 0;
+  background: variables.$theme-color-light url('../img/lighthouse-bg-default.jpg') no-repeat 0 0;
   background-attachment: fixed;
-  color: $theme-color-text;
-  font-family: $font-family;
+  color: variables.$theme-color-text;
+  font-family: variables.$font-family;
   overflow-y: scroll;
 }
 
@@ -31,37 +31,37 @@ body {
   }
 
   &:focus-visible {
-    outline: $focus-outline-width solid $focus-outline-color;
+    outline: variables.$focus-outline-width solid variables.$focus-outline-color;
   }
 }
 
 a {
-  color: $link-color;
+  color: variables.$link-color;
   text-decoration: none;
 
   &:hover {
-    color: $link-color-hover;
+    color: variables.$link-color-hover;
     text-decoration: underline;
   }
 }
 
 #header {
-  background: $header-color-bg;
-  backdrop-filter: blur($header-bg-blur);
-  box-shadow: $header-shadow;
+  background: variables.$header-color-bg;
+  backdrop-filter: blur(variables.$header-bg-blur);
+  box-shadow: variables.$header-shadow;
 }
 
 #main-content {
-  background: $main-color-bg;
-  padding: $main-padding;
+  background: variables.$main-color-bg;
+  padding: variables.$main-padding;
   flex: 1; // expand to fill
-  margin-top: calc($theme-bg-image-visible-height + $computed-header-height);
+  margin-top: calc(variables.$theme-bg-image-visible-height + variables.$computed-header-height);
 }
 
 #footer {
-  background: $main-color-bg;
-  padding: $footer-padding;
-  font-size: $footer-font-size;
+  background: variables.$main-color-bg;
+  padding: variables.$footer-padding;
+  font-size: variables.$footer-font-size;
   text-align: center;
 
   a {
@@ -69,14 +69,14 @@ a {
   }
 
   svg {
-    fill: $theme-color-text;
+    fill: variables.$theme-color-text;
     vertical-align: bottom;
     width: 20px;
     height: 20px;
   }
 }
 
-@include breakpoint-up($grid-desktop-min-size) {
+@include mixins.breakpoint-up(variables.$grid-desktop-min-size) {
   // Desktop overrides
 
   html {
@@ -88,7 +88,9 @@ a {
   }
 
   #main-content {
-    margin-top: calc($theme-bg-image-visible-height-desktop + $computed-header-height-desktop);
+    margin-top: calc(
+      variables.$theme-bg-image-visible-height-desktop + variables.$computed-header-height-desktop
+    );
   }
 }
 

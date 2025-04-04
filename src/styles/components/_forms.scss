@@ -1,67 +1,66 @@
-@import 'variables';
-@import 'mixins';
+@use 'variables' as variables;
 
 .form-group {
   position: relative;
-  margin: $form-group-margin;
+  margin: variables.$form-group-margin;
 
   label {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: $form-label-zindex;
+    z-index: variables.$form-label-zindex;
     height: 100%;
-    padding: $form-label-padding;
-    color: $form-label-color;
+    padding: variables.$form-label-padding;
+    color: variables.$form-label-color;
     overflow: hidden;
     text-align: start;
     text-overflow: ellipsis;
     white-space: nowrap;
     pointer-events: none;
-    border: $form-ctrl-border-width solid transparent;
+    border: variables.$form-ctrl-border-width solid transparent;
     transform-origin: 0 0;
     transition:
-      opacity $form-label-transition-speed $form-label-transition-easing,
-      transform $form-label-transition-speed $form-label-transition-easing;
+      opacity variables.$form-label-transition-speed variables.$form-label-transition-easing,
+      transform variables.$form-label-transition-speed variables.$form-label-transition-easing;
   }
 }
 
 .form-ctrl {
   display: block;
   width: 100%;
-  font-family: $form-ctrl-font-family;
-  font-size: $form-ctrl-font-size;
-  padding: $form-ctrl-padding;
-  background-color: $form-ctrl-bg;
+  font-family: variables.$form-ctrl-font-family;
+  font-size: variables.$form-ctrl-font-size;
+  padding: variables.$form-ctrl-padding;
+  background-color: variables.$form-ctrl-bg;
   background-clip: padding-box;
   outline-width: 0;
-  border: $form-ctrl-border-width solid $form-ctrl-border-color;
-  border-radius: $form-ctrl-radius;
-  height: $form-ctrl-height;
-  min-height: $form-ctrl-height;
-  line-height: $form-ctrl-line-height;
+  border: variables.$form-ctrl-border-width solid variables.$form-ctrl-border-color;
+  border-radius: variables.$form-ctrl-radius;
+  height: variables.$form-ctrl-height;
+  min-height: variables.$form-ctrl-height;
+  line-height: variables.$form-ctrl-line-height;
   transition:
-    outline-color $form-ctrl-transition-speed $form-ctrl-transition-easing,
-    border-color $form-ctrl-transition-speed $form-ctrl-transition-easing,
-    box-shadow $form-ctrl-transition-speed $form-ctrl-transition-easing;
+    outline-color variables.$form-ctrl-transition-speed variables.$form-ctrl-transition-easing,
+    border-color variables.$form-ctrl-transition-speed variables.$form-ctrl-transition-easing,
+    box-shadow variables.$form-ctrl-transition-speed variables.$form-ctrl-transition-easing;
 
   &::placeholder {
     color: transparent;
   }
 
   &:focus {
-    border-color: $form-ctrl-focus-border-color;
-    box-shadow: $form-ctrl-focus-shadow;
+    border-color: variables.$form-ctrl-focus-border-color;
+    box-shadow: variables.$form-ctrl-focus-shadow;
   }
 
   &:focus,
   &:not(:placeholder-shown) {
-    padding-top: $form-ctrl-focus-padding-top;
-    padding-bottom: $form-ctrl-focus-padding-bottom;
+    padding-top: variables.$form-ctrl-focus-padding-top;
+    padding-bottom: variables.$form-ctrl-focus-padding-bottom;
 
     ~ label {
-      color: $form-label-focus-color;
-      transform: $form-label-focus-transforms;
+      color: variables.$form-label-focus-color;
+      transform: variables.$form-label-focus-transforms;
 
       &::after {
         position: absolute;
@@ -70,40 +69,40 @@
         height: 1.5em;
         content: '';
         background-color: transparent;
-        border-radius: $form-ctrl-radius;
+        border-radius: variables.$form-ctrl-radius;
       }
     }
   }
 
   &:-webkit-autofill {
-    padding-top: $form-ctrl-focus-padding-top;
-    padding-bottom: $form-ctrl-focus-padding-bottom;
+    padding-top: variables.$form-ctrl-focus-padding-top;
+    padding-bottom: variables.$form-ctrl-focus-padding-bottom;
 
     ~ label {
-      color: $form-label-focus-color;
-      transform: $form-label-focus-transforms;
+      color: variables.$form-label-focus-color;
+      transform: variables.$form-label-focus-transforms;
     }
   }
 
   &.invalid,
   &.interacted:invalid {
-    background-color: $form-ctrl-invalid-bg-color;
-    border-color: $form-ctrl-invalid-border-color;
+    background-color: variables.$form-ctrl-invalid-bg-color;
+    border-color: variables.$form-ctrl-invalid-border-color;
 
     &:focus {
-      border-color: $form-ctrl-invalid-focus-border-color;
-      box-shadow: $form-ctrl-invalid-focus-shadow;
+      border-color: variables.$form-ctrl-invalid-focus-border-color;
+      box-shadow: variables.$form-ctrl-invalid-focus-shadow;
     }
 
     ~ label {
-      color: $form-label-invalid-color;
+      color: variables.$form-label-invalid-color;
     }
   }
 }
 
 textarea.form-ctrl {
   resize: vertical;
-  min-height: $form-ctrl-textarea-min-height;
-  height: $form-ctrl-textarea-min-height;
-  max-height: $form-ctrl-textarea-max-height;
+  min-height: variables.$form-ctrl-textarea-min-height;
+  height: variables.$form-ctrl-textarea-min-height;
+  max-height: variables.$form-ctrl-textarea-max-height;
 }

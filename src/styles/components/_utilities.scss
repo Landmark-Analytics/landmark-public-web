@@ -1,22 +1,23 @@
-@import 'variables';
-@import 'mixins';
+@use 'sass:map';
+@use 'variables' as variables;
+@use 'mixins' as mixins;
 
 .container {
   margin: 0 auto;
-  max-width: map-get($grid-breakpoints, $grid-desktop-container-max-size);
-  padding: 0 $spacer;
+  max-width: map.get(variables.$grid-breakpoints, variables.$grid-desktop-container-max-size);
+  padding: 0 variables.$spacer;
 }
 
 .visually-hidden {
-  @include visually-hidden;
+  @include mixins.visually-hidden;
 }
 
 .text-error {
-  color: $theme-color-error;
+  color: variables.$theme-color-error;
 }
 
 .text-success {
-  color: $theme-color-success;
+  color: variables.$theme-color-success;
 }
 
 .icon {
@@ -33,13 +34,13 @@
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 (calc($grid-gutter / 2) * -1);
+  margin: 0 (calc(variables.$grid-gutter / 2) * -1);
 
   > * {
     width: 100%;
     max-width: 100%;
-    padding: 0 calc($grid-gutter / 2);
+    padding: 0 calc(variables.$grid-gutter / 2);
   }
 }
 
-@include make-grid-columns;
+@include mixins.make-grid-columns;

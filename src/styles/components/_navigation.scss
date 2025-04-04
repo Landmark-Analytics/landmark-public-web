@@ -1,31 +1,31 @@
-@import 'variables';
-@import 'mixins';
+@use 'variables' as variables;
+@use 'mixins' as mixins;
 
 #sidebar {
   position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
-  z-index: $sidebar-zindex;
-  padding: $sidebar-padding;
-  width: $sidebar-width;
-  background-color: $sidebar-color-bg;
+  z-index: variables.$sidebar-zindex;
+  padding: variables.$sidebar-padding;
+  width: variables.$sidebar-width;
+  background-color: variables.$sidebar-color-bg;
   transform: translateX(-100%);
-  transition: $duration transform $ease-out-expo;
+  transition: variables.$duration transform variables.$ease-out-expo;
 
   .nav-open & {
     transform: translateX(0);
-    box-shadow: $sidebar-shadow;
+    box-shadow: variables.$sidebar-shadow;
   }
 
   &-backdrop {
     position: fixed;
     inset: 0;
-    z-index: $sidebar-backdrop-z-index;
-    background-color: $sidebar-backdrop-color;
+    z-index: variables.$sidebar-backdrop-z-index;
+    background-color: variables.$sidebar-backdrop-color;
     opacity: 0;
     pointer-events: none;
-    transition: $duration opacity;
+    transition: variables.$duration opacity;
 
     .nav-open & {
       opacity: 1;
@@ -39,8 +39,8 @@
   flex-direction: column;
 
   a {
-    padding: $side-nav-link-padding;
-    border-left-width: $nav-link-border-width !important;
+    padding: variables.$side-nav-link-padding;
+    border-left-width: variables.$nav-link-border-width !important;
   }
 }
 
@@ -50,35 +50,35 @@
   width: 100%;
 
   a {
-    padding: $desktop-nav-padding;
-    border-bottom-width: $nav-link-border-width !important;
+    padding: variables.$desktop-nav-padding;
+    border-bottom-width: variables.$nav-link-border-width !important;
   }
 }
 
 #side-navigation,
 #header-navigation {
-  font-size: $nav-font-size;
+  font-size: variables.$nav-font-size;
 
   a {
-    color: $nav-link-color;
+    color: variables.$nav-link-color;
     border: 0 solid transparent;
 
     &:hover,
     &:focus {
       text-decoration: none;
-      border-color: $nav-link-active-border-color;
+      border-color: variables.$nav-link-active-border-color;
     }
 
     &.current {
-      font-weight: $nav-link-active-font-weight;
-      color: $nav-link-active-color;
-      background-color: $nav-link-active-color-bg;
-      border-color: $nav-link-active-border-color;
+      font-weight: variables.$nav-link-active-font-weight;
+      color: variables.$nav-link-active-color;
+      background-color: variables.$nav-link-active-color-bg;
+      border-color: variables.$nav-link-active-border-color;
     }
   }
 }
 
-@include breakpoint-up($grid-desktop-min-size) {
+@include mixins.breakpoint-up(variables.$grid-desktop-min-size) {
   // Desktop overrides
 
   #sidebar,

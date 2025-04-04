@@ -1,4 +1,5 @@
 @use 'sass:color';
+@use 'sass:map';
 
 // ---------------------------
 // BREAKPOINTS
@@ -25,9 +26,9 @@ $spacers: (
   3: $spacer,
   4: $spacer * 1.5,
 );
-$spacer-xs: map-get($spacers, 1);
-$spacer-sm: map-get($spacers, 2);
-$spacer-lg: map-get($spacers, 4);
+$spacer-xs: map.get($spacers, 1);
+$spacer-sm: map.get($spacers, 2);
+$spacer-lg: map.get($spacers, 4);
 
 // ---------------------------
 // COLORS
