@@ -57,6 +57,8 @@ module.exports = (eleventyConfig) => {
     return content;
   });
 
+  eleventyConfig.addFilter('justYear', (dateString) => new Date(dateString).getFullYear());
+
   return {
     dir: { input: 'src' },
   };
