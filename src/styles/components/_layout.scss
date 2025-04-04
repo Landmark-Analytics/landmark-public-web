@@ -7,6 +7,11 @@
   box-sizing: border-box;
 }
 
+::selection {
+  color: variables.$theme-color-bg;
+  background: variables.$theme-color-highlight;
+}
+
 html,
 body {
   height: 100vh;
