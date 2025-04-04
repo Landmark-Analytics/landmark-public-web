@@ -6,6 +6,7 @@
     { "name": "Expertise", "url": "/expertise/" },
     { "name": "Industries", "url": "/industries/" },
     { "name": "Solutions", "url": "/solutions/" },
+    { "name": "Partners", "url": "/partners/" },
     { "name": "About", "url": "/about/" },
     { "name": "Contact", "url": "/contact/" }
   ]

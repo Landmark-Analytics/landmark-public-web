@@ -114,7 +114,7 @@ $side-nav-link-padding: $spacer-sm $spacer $spacer-sm calc($spacer - $nav-link-b
 // ---------------------------
 // HEADER NAVIGATION (desktop)
 $desktop-nav-padding-v: $spacer-sm;
-$desktop-nav-padding-h: $spacer-lg;
+$desktop-nav-padding-h: $spacer;
 $desktop-nav-padding: $desktop-nav-padding-v $desktop-nav-padding-h
   calc($desktop-nav-padding-v - $nav-link-border-width) $desktop-nav-padding-h;
 $computed-header-height: calc($header-logo-height + ($header-logo-margin-v * 2));
