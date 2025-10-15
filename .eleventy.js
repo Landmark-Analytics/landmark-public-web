@@ -6,6 +6,12 @@ const esbuild = require('esbuild');
 module.exports = (eleventyConfig) => {
   const isBuildMode = process.env.ELEVENTY_RUN_MODE === 'build';
 
+  //Attempt to get live updating to work everywhere: https://www.11ty.dev/docs/watch-serve/#advanced-chokidar-configuration
+  eleventyConfig.setChokidarConfig({
+    usePolling: true,
+    interval: 500,
+  });
+
   eleventyConfig.addPassthroughCopy('src/img');
 
   eleventyConfig.addTemplateFormats('js');
