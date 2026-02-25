@@ -40,6 +40,7 @@ module.exports = (eleventyConfig) => {
       const result = sass.compileString(inputContent, {
         loadPaths: [parsedPath.dir || '.', eleventyConfig.dir.includes],
         style: isBuildMode ? 'compressed' : 'expanded',
+        silenceDeprecations: ['if-function'],
       });
 
       //Mark any imported/dependent files to allow them to trigger a re-build during serve mode
