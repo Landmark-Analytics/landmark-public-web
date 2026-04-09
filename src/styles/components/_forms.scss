@@ -6,22 +6,21 @@
 
   label {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: variables.$form-ctrl-border-width;
+    left: variables.$form-ctrl-border-width;
+    right: variables.$form-ctrl-border-width;
     z-index: variables.$form-label-zindex;
-    height: 100%;
     padding: variables.$form-label-padding;
     color: variables.$form-label-color;
+    background-color: variables.$form-ctrl-bg;
+    font-size: variables.$form-label-font-size;
     overflow: hidden;
     text-align: start;
     text-overflow: ellipsis;
     white-space: nowrap;
     pointer-events: none;
     border: variables.$form-ctrl-border-width solid transparent;
-    transform-origin: 0 0;
-    transition:
-      opacity variables.$form-label-transition-speed variables.$form-label-transition-easing,
-      transform variables.$form-label-transition-speed variables.$form-label-transition-easing;
+    border-radius: variables.$form-ctrl-radius;
   }
 }
 
@@ -31,6 +30,8 @@
   font-family: variables.$form-ctrl-font-family;
   font-size: variables.$form-ctrl-font-size;
   padding: variables.$form-ctrl-padding;
+  padding-top: variables.$form-ctrl-focus-padding-top;
+  padding-bottom: variables.$form-ctrl-focus-padding-bottom;
   background-color: variables.$form-ctrl-bg;
   background-clip: padding-box;
   outline-width: 0;
@@ -44,34 +45,23 @@
     border-color variables.$form-ctrl-transition-speed variables.$form-ctrl-transition-easing,
     box-shadow variables.$form-ctrl-transition-speed variables.$form-ctrl-transition-easing;
 
-  &::placeholder {
-    color: transparent;
+  ~ label {
+    color: variables.$form-label-focus-color;
+
+    &::after {
+      position: absolute;
+      inset: 1rem 0.375rem;
+      z-index: -1;
+      height: 1.5em;
+      content: '';
+      background-color: transparent;
+      border-radius: variables.$form-ctrl-radius;
+    }
   }
 
   &:focus {
     border-color: variables.$form-ctrl-focus-border-color;
     box-shadow: variables.$form-ctrl-focus-shadow;
-  }
-
-  &:focus,
-  &:not(:placeholder-shown) {
-    padding-top: variables.$form-ctrl-focus-padding-top;
-    padding-bottom: variables.$form-ctrl-focus-padding-bottom;
-
-    ~ label {
-      color: variables.$form-label-focus-color;
-      transform: variables.$form-label-focus-transforms;
-
-      &::after {
-        position: absolute;
-        inset: 1rem 0.375rem;
-        z-index: -1;
-        height: 1.5em;
-        content: '';
-        background-color: transparent;
-        border-radius: variables.$form-ctrl-radius;
-      }
-    }
   }
 
   &:-webkit-autofill {
@@ -80,7 +70,6 @@
 
     ~ label {
       color: variables.$form-label-focus-color;
-      transform: variables.$form-label-focus-transforms;
     }
   }
 
@@ -96,6 +85,7 @@
 
     ~ label {
       color: variables.$form-label-invalid-color;
+      background-color: variables.$form-ctrl-invalid-bg-color;
     }
   }
 }
@@ -105,4 +95,13 @@ textarea.form-ctrl {
   min-height: variables.$form-ctrl-textarea-min-height;
   height: variables.$form-ctrl-textarea-min-height;
   max-height: variables.$form-ctrl-textarea-max-height;
+}
+
+select.form-ctrl {
+  height: 3.5rem;
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
 }

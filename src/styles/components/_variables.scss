@@ -135,12 +135,10 @@ $main-color-bg: $theme-color-bg;
 // ---------------------------
 // FORMS
 $form-group-margin: 0 0 $spacer 0;
-$form-label-focus-transforms: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
 $form-label-color: $theme-color-text;
+$form-label-font-size: 0.9rem;
 $form-label-focus-color: rgba($form-label-color, 0.65);
-$form-label-padding: 1rem $spacer-sm;
-$form-label-transition-speed: $duration;
-$form-label-transition-easing: $ease-out-expo;
+$form-label-padding: 0.25rem 0.25rem 0 0.25rem;
 $form-label-invalid-color: $theme-color-error;
 $form-label-zindex: 2;
 $form-ctrl-font-family: $font-family;
