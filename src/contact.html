@@ -8,15 +8,7 @@ title: Contact
     <h2>Let's Talk</h2>
     <form id="contact-form" method="post" action="https://formspree.io/f/xeqboqvk">
       <div class="form-group">
-        <input
-          type="text"
-          class="form-ctrl"
-          id="name"
-          name="name"
-          placeholder="Your Name"
-          autocomplete="name"
-          required
-        />
+        <input type="text" class="form-ctrl" id="name" name="name" autocomplete="name" required />
         <label for="name">Name</label>
       </div>
 
@@ -27,32 +19,20 @@ title: Contact
           id="email"
           name="email"
           autocomplete="email"
-          placeholder="name@exmaple.com"
           required
-          email
         />
         <label for="email">Email</label>
       </div>
 
       <div class="form-group">
-        <select class="form-ctrl" id="request">
-            <option>
-                CHECK Starter Kit
-            </option>
-                 <option>
-                Coaching / Personal Development
-            </option>
-                 <option>
-                Workshop 
-            </option>
-                 <option>
-                Speaking Engagement
-            </option>
+        <select class="form-ctrl" id="request" required>
+          <option></option>
+          <option>CHECK Starter Kit</option>
+          <option>Coaching / Personal Development</option>
+          <option>Workshop</option>
+          <option>Speaking Engagement</option>
         </select>
-     <label for="request">Type of Request</label>
-
-
-
+        <label for="request">Type of Request</label>
       </div>
 
       <div class="form-group">
@@ -62,7 +42,6 @@ title: Contact
           class="form-ctrl"
           cols="30"
           rows="10"
-          placeholder="Your Message"
           required
           minlength="20"
         ></textarea>
@@ -95,7 +74,7 @@ title: Contact
 
 <script>
   const $form = document.getElementById('contact-form');
-  const $formFields = Array.from($form.querySelectorAll('input, textarea'));
+  const $formFields = Array.from($form.querySelectorAll('input, select, textarea'));
   const $status = document.getElementById('form-status');
   const errorClass = 'text-error';
 
