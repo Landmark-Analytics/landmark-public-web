@@ -4,7 +4,7 @@
   "navigation": [
     { "name": "Home", "url": "/" },
     { "name": "Expertise", "url": "/expertise/" },
-    { "name": "Industries", "url": "/industries/" },
+    { "name": "CHECK", "url": "/check/" },
     { "name": "Solutions", "url": "/solutions/" },
     { "name": "Partners", "url": "/partners/" },
     { "name": "About", "url": "/about/" },
